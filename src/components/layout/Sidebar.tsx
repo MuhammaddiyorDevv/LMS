@@ -40,7 +40,7 @@ export default function Sidebar() {
         <div>
           <ul className="space-y-2 pb-[20px]">
             {menuItems.map(({ name, href, icon: Icon }) => {
-              const active = pathname === href;
+              const active = pathname === href || (href === "/allCourses" && pathname.startsWith("/course/"));
               return (
                 <li key={name}>
                   <Link

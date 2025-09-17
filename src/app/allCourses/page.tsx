@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   MdOutlineReplay,
   MdSearch,
@@ -174,7 +175,7 @@ const AllCoursesPage = () => {
         <div className="p-4">
           <div className="flex justify-between items-center mb-4">
             <h5 className="font-semibold text-[14px]">Толко премиум</h5>
-            <img src="/Images/Switch.svg" alt="" />
+            <Image src="/Images/Switch.svg" alt="Switch" width={24} height={24} />
           </div>
             <hr className="text-[#F2F1F5] mb-4" />
 
@@ -433,11 +434,12 @@ const AllCoursesPage = () => {
       </div>
 
         {/* Courses Grid */}
-          <div className="gap-6 flex flex-wrap mt-6 grid grid-cols-2">
+          <div className="gap-6 mt-6 grid grid-cols-2">
           {filteredCourses.map((course) => (
-            <div
+            <Link
               key={course.id}
-              className="bg-white rounded-2xl border border-[#E5E5E5] hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+              href={`/course/${course.id}`}
+              className="bg-white rounded-2xl border border-[#E5E5E5] hover:shadow-xl transition-shadow duration-300 overflow-hidden cursor-pointer"
             >
               {/* Course Image */}
               <div className="relative h-48 w-full">
@@ -517,7 +519,7 @@ const AllCoursesPage = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
