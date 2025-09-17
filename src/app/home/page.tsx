@@ -33,7 +33,7 @@ ChartJS.register(
   PointElement,
   LineElement,
   Title,
-  Filler
+  Filler,
 );
 
 // Course Progress Chart Data
@@ -429,7 +429,7 @@ export default function Home() {
   const getCurrentMentors = () => {
     return mentors.slice(
       currentMentorSlide,
-      currentMentorSlide + mentorsPerSlide
+      currentMentorSlide + mentorsPerSlide,
     );
   };
 
