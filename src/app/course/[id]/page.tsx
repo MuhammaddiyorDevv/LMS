@@ -1,11 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import {
-  MdArrowBack,
   MdPlayArrow,
   MdAccessTime,
   MdPeople,
@@ -13,6 +12,9 @@ import {
   MdStar,
   MdCheckCircle,
 } from "react-icons/md";
+import { FiSmartphone } from "react-icons/fi";
+import { FiHeadphones } from "react-icons/fi";
+import { IoIosArrowDown } from "react-icons/io";
 import { FaStar } from "react-icons/fa";
 
 // Course data interface (same as in allCourses)
@@ -38,11 +40,11 @@ const courses: NewCourse[] = [
     id: 1,
     title: "Figma Master Class",
     description:
-      "Мы подготовили свежие курсы, чтобы вы могли продолжить развивать свои навыки и достигать новых высот. Подберите курс, который соответствует вашим целям и интересами классными темами у нас",
+      "Наряду с этим, искусство медиапланирования непосредственно специфицирует тактический комплексный анализ ситуации. Один из признанных классиков маркетинга Ф.Котлер определяет это так: повторный контакт специфицирует инструмент маркетинга. Отраслевой стандарт, анализируя результаты рекламной кампании, недостаточно тормозит нишевый проект, признавая определенные. Инвестиционный продукт поддерживает анализ зарубежного опыта. Примерная структура маркетингового исследования осмысленно ускоряет социометрический стиль менеджмента. Сегментация рынка спонтанно допускает экспериментальный product placement. В соответствии с законом Ципфа, точечное воздействие многопланово позиционирует рыночный маркетинг. Согласно последним исследованиям, маркетингово-ориентированное издание как всегда непредсказуемо.",
     rating: 4.5,
     price: "1 200 000 UZS",
     instructor: {
-      name: "Абдуллаев Алишер",
+      name: "Попова Алёна ",
       avatar: "/Images/Alisher.svg",
     },
     lessons: 23,
@@ -54,7 +56,7 @@ const courses: NewCourse[] = [
     id: 2,
     title: "React Development Course",
     description:
-      "Изучите современную разработку на React с нуля до профессионального уровня. Практические проекты и реальные кейсы.",
+      "Наряду с этим, искусство медиапланирования непосредственно специфицирует тактический комплексный анализ ситуации. Один из признанных классиков маркетинга Ф.Котлер определяет это так: повторный контакт специфицирует инструмент маркетинга. Отраслевой стандарт, анализируя результаты рекламной кампании, недостаточно тормозит нишевый проект, признавая определенные. Инвестиционный продукт поддерживает анализ зарубежного опыта. Примерная структура маркетингового исследования осмысленно ускоряет социометрический стиль менеджмента. Сегментация рынка спонтанно допускает экспериментальный product placement. В соответствии с законом Ципфа, точечное воздействие многопланово позиционирует рыночный маркетинг. Согласно последним исследованиям, маркетингово-ориентированное издание как всегда непредсказуемо.",
     rating: 4.8,
     price: "2 500 000 UZS",
     instructor: {
@@ -70,7 +72,7 @@ const courses: NewCourse[] = [
     id: 3,
     title: "Python Programming",
     description:
-      "Освойте Python с нуля и станьте востребованным программистом. Изучите основы и продвинутые концепции языка.",
+      "Наряду с этим, искусство медиапланирования непосредственно специфицирует тактический комплексный анализ ситуации. Один из признанных классиков маркетинга Ф.Котлер определяет это так: повторный контакт специфицирует инструмент маркетинга. Отраслевой стандарт, анализируя результаты рекламной кампании, недостаточно тормозит нишевый проект, признавая определенные. Инвестиционный продукт поддерживает анализ зарубежного опыта. Примерная структура маркетингового исследования осмысленно ускоряет социометрический стиль менеджмента. Сегментация рынка спонтанно допускает экспериментальный product placement. В соответствии с законом Ципфа, точечное воздействие многопланово позиционирует рыночный маркетинг. Согласно последним исследованиям, маркетингово-ориентированное издание как всегда непредсказуемо.",
     rating: 4.7,
     price: "800 000 UZS",
     instructor: {
@@ -86,7 +88,7 @@ const courses: NewCourse[] = [
     id: 4,
     title: "UI/UX Design Fundamentals",
     description:
-      "Изучите принципы дизайна пользовательского интерфейса и создавайте интуитивные и красивые приложения.",
+      "Наряду с этим, искусство медиапланирования непосредственно специфицирует тактический комплексный анализ ситуации. Один из признанных классиков маркетинга Ф.Котлер определяет это так: повторный контакт специфицирует инструмент маркетинга. Отраслевой стандарт, анализируя результаты рекламной кампании, недостаточно тормозит нишевый проект, признавая определенные. Инвестиционный продукт поддерживает анализ зарубежного опыта. Примерная структура маркетингового исследования осмысленно ускоряет социометрический стиль менеджмента. Сегментация рынка спонтанно допускает экспериментальный product placement. В соответствии с законом Ципфа, точечное воздействие многопланово позиционирует рыночный маркетинг. Согласно последним исследованиям, маркетингово-ориентированное издание как всегда непредсказуемо.",
     rating: 4.9,
     price: "3 200 000 UZS",
     instructor: {
@@ -102,7 +104,7 @@ const courses: NewCourse[] = [
     id: 5,
     title: "JavaScript Advanced",
     description:
-      "Продвинутые техники JavaScript, ES6+, асинхронное программирование и современные фреймворки.",
+      "Наряду с этим, искусство медиапланирования непосредственно специфицирует тактический комплексный анализ ситуации. Один из признанных классиков маркетинга Ф.Котлер определяет это так: повторный контакт специфицирует инструмент маркетинга. Отраслевой стандарт, анализируя результаты рекламной кампании, недостаточно тормозит нишевый проект, признавая определенные. Инвестиционный продукт поддерживает анализ зарубежного опыта. Примерная структура маркетингового исследования осмысленно ускоряет социометрический стиль менеджмента. Сегментация рынка спонтанно допускает экспериментальный product placement. В соответствии с законом Ципфа, точечное воздействие многопланово позиционирует рыночный маркетинг. Согласно последним исследованиям, маркетингово-ориентированное издание как всегда непредсказуемо.",
     rating: 4.6,
     price: "1 800 000 UZS",
     instructor: {
@@ -118,7 +120,7 @@ const courses: NewCourse[] = [
     id: 6,
     title: "Data Science with Python",
     description:
-      "Анализ данных, машинное обучение и визуализация с использованием Python и популярных библиотек.",
+      "Наряду с этим, искусство медиапланирования непосредственно специфицирует тактический комплексный анализ ситуации. Один из признанных классиков маркетинга Ф.Котлер определяет это так: повторный контакт специфицирует инструмент маркетинга. Отраслевой стандарт, анализируя результаты рекламной кампании, недостаточно тормозит нишевый проект, признавая определенные. Инвестиционный продукт поддерживает анализ зарубежного опыта. Примерная структура маркетингового исследования осмысленно ускоряет социометрический стиль менеджмента. Сегментация рынка спонтанно допускает экспериментальный product placement. В соответствии с законом Ципфа, точечное воздействие многопланово позиционирует рыночный маркетинг. Согласно последним исследованиям, маркетингово-ориентированное издание как всегда непредсказуемо.",
     rating: 4.8,
     price: "4 500 000 UZS",
     instructor: {
@@ -132,10 +134,67 @@ const courses: NewCourse[] = [
   },
 ];
 
+// Review data interface
+interface Review {
+  id: number;
+  name: string;
+  avatar: string;
+  rating: number;
+  date: string;
+  time: string;
+  comment: string;
+}
+
+// Sample review data
+const reviews: Review[] = [
+  {
+    id: 1,
+    name: "Титова Кристина",
+    avatar: "/Images/Kristina.svg",
+    rating: 4,
+    date: "Сегодня",
+    time: "13:34",
+    comment:
+      "Принцип восприятия, конечно, раскручивает ролевой формат события, Эволюция мерчандайзинга, вопреки мнению П.Друкеро, однообразно синхронизирует тактический рейтинг, невзирая на действия конкурентов",
+  },
+  {
+    id: 2,
+    name: "Попова Алёна ",
+    avatar: "/Images/Alyona.svg",
+    rating: 5,
+    date: "Сегодня",
+    time: "13:34",
+    comment:
+      "Имидж программирует показ баннера, опираясь на опыт западных коллег. Не факт, что VIP-мероприятие многопланово искажает культурный ребрендинг. Медиабизнес усиливает ролевой медиабизнес. Анализ рыночных цен отражает традиционный канал.",
+  },
+  {
+    id: 3,
+    name: "Юдина Екатерина ",
+    avatar: "/Images/Yekaterina.svg",
+    rating: 4,
+    date: "Сегодня",
+    time: "13:34",
+    comment:
+      "Размещение, не меняя концепции, изложенной выше, допускает анализ зарубежного опыта, не считаясь с затратами. Воздействие на потребителя стабилизирует повторный контакт, учитывая результат предыдущих медиа-кампаний. Несмотря на сложности, эластичность спроса ",
+  },
+  {
+    id: 4,
+    name: "Tитова Кристина",
+    avatar: "/Images/Kristina.svg",
+    rating: 5,
+    date: "Сегодня",
+    time: "13:34",
+    comment:
+      "Принцип восприятия, конечно, раскручивает ролевой формат события. Эволюция мерчандайзинга, вопреки мнению П.Друкера, однообразно синхронизирует тактический рейтинг, невзирая на действия конкурентов",
+  },
+];
+
 const CourseDetailPage = () => {
   const params = useParams();
   const router = useRouter();
   const courseId = parseInt(params.id as string);
+  const [visibleLessons, setVisibleLessons] = useState(7);
+  const [visibleReviews, setVisibleReviews] = useState(3);
 
   const course = courses.find((c) => c.id === courseId);
 
@@ -158,215 +217,368 @@ const CourseDetailPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div className="min-h-screen">
+      <div className=" mx-auto py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 ">
           {/* Main Content */}
-          <div className="lg:col-span-2">
-            {/* Course Hero Section */}
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden mb-8">
-              <div className="relative h-64 md:h-80">
-                <Image
-                  src={course.image}
-                  alt={course.title}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="flex items-center gap-1">
-                      <FaStar className="text-yellow-400 text-sm" />
-                      <span className="text-white text-sm font-semibold">
-                        {course.rating}
-                      </span>
+          <div className="lg:col-span-2 ">
+            <div className="bg-white p-4 rounded-[16px] mb-8">
+              <div className="flex flex-col gap-2 mb-6">
+                <span className="bg-[#D5EECD] text-[#567D4A] py-1 px-[6px] rounded-[4px] text-xs font-medium w-fit">
+                  TOP RATED
+                </span>
+                <h1 className="text-[24px] md:text-[26px] font-bold text-gray-800 leading-tight">
+                  Мастер-класс по UX: Улучшение пользовательского опыта для
+                  оптимального дизайна
+                </h1>
+              </div>
+              <hr className="py-[16px]" />
+              {/* Course Hero Section */}
+              <div className="bg-white rounded-[16px] shadow-sm overflow-hidden ">
+                <div className="relative h-[380px] md:h-[380px]">
+                  <Image
+                    src={course.image}
+                    alt={course.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-[#567D4A] bg-opacity-20 rounded-full p-4 hover:bg-opacity-30 transition-all cursor-pointer">
+                      <MdPlayArrow className="text-white text-6xl" />
                     </div>
-                    <span className="text-white text-sm">
-                      ({course.participants.toLocaleString()} участников)
-                    </span>
                   </div>
-                  <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                    {course.title}
-                  </h1>
                 </div>
               </div>
             </div>
-
             {/* Course Description */}
-            <div className="bg-white rounded-2xl shadow-sm p-6 mb-8">
-              <h2 className="text-xl font-bold text-gray-800 mb-4">
-                Описание курса
-              </h2>
-              <p className="text-gray-600 leading-relaxed">
-                {course.description}
-              </p>
+            <div className="bg-white rounded-[16px] shadow-sm p-6 mb-8">
+              <div className="w-full flex flex-col gap-[8px]">
+                <p className="text-[#616161] leading-relaxed text-justify whitespace-pre-wrap break-words text-base">
+                  Наряду с этим, искусство медиапланирования непосредственно
+                  специфицирует тактический комплексный анализ ситуации. Один из
+                  признанных классиков маркетинга Ф.Котлер определяет это так:
+                  повторный контакт специфицирует инструмент маркетинга.
+                  Отраслевой стандарт, анализируя результаты рекламной кампании,
+                  недостаточно тормозит нишевый проект, признавая определенные
+                </p>
+                <p className="text-[#616161] leading-relaxed text-justify whitespace-pre-wrap break-words text-base">
+                  Инвестиционный продукт поддерживает анализ зарубежного опыта.
+                  Примерная структура маркетингового исследования осмысленно
+                  ускоряет социометрический стиль менеджмента. Сегментация рынка
+                  спонтанно допускает экспериментальный product placement. В
+                  соответствии с законом Ципфа, точечное воздействие
+                  многопланово позиционирует рыночный маркетинг. Согласно
+                  последним исследованиям, маркетингово-ориентированное издание
+                  как всегда непредсказуемо.
+                </p>
+              </div>
+              <div className="mt-4">
+                <h1 className="font-semibold text-[#0B0C0B] text-[24px]">
+                  Ключевой момент
+                </h1>
+                <ul className=" space-y-2 text-[#616161] items-center font-medium">
+                  <li className="mt-[10px]">
+                    <MdCheckCircle className="inline text-[#567D4A] text-[30px] mr-2" />
+                    Понимать основы создания прототипов и анимации
+                  </li>
+                  <li className="mt-[10px]">
+                    <MdCheckCircle className="inline text-[#567D4A] text-[30px] mr-2" />
+                    Понимать основы микроинтерактивности
+                  </li>
+                  <li className="mt-[10px]">
+                    <MdCheckCircle className="inline text-[#567D4A] text-[30px] mr-2" />
+                    Создание анимации (20 тематических исследований) для
+                    мобильных приложений
+                  </li>
+                  <li className="mt-[10px]">
+                    <MdCheckCircle className="inline text-[#567D4A] text-[30px] mr-2" />
+                    Представление дизайна с использованием анимации
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* Course Curriculum */}
-            <div className="bg-white rounded-2xl shadow-sm p-6 mb-8">
+            <div className="bg-white rounded-[16px] shadow-sm p-6 mb-4">
               <h2 className="text-xl font-bold text-gray-800 mb-6">
-                Программа курса
+                Содержание курса
               </h2>
-              <div className="space-y-4">
-                {Array.from({ length: course.lessons }, (_, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
-                  >
-                    <div className="flex-shrink-0">
-                      <MdPlayArrow className="text-blue-600 text-xl" />
+              <div className="space-y-4 border-[1px] border-[#E5E5E5] rounded-[12px] py-4 px-5">
+                {Array.from(
+                  { length: Math.min(visibleLessons, course.lessons) },
+                  (_, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-4 p-4 border-b border-[#E5E5E5] rounded-[12px] hover:bg-gray-50 transition-colors"
+                    >
+                      <div className="flex-1">
+                        <h3 className="font-medium text-gray-800">
+                          {i + 1}. Введение в тему
+                        </h3>
+                        <p className="text-sm text-gray-600">11 минут</p>
+                      </div>
+                      <div className="flex-shrink-0">
+                        <MdPlayArrow className="text-[#567D4A] text-[36px]" />
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="font-medium text-gray-800">
-                        Урок {i + 1}: Введение в тему
-                      </h3>
-                      <p className="text-sm text-gray-600">
-                        Продолжительность: 15-20 минут
-                      </p>
-                    </div>
-                    <div className="flex-shrink-0">
-                      <MdCheckCircle className="text-green-500 text-xl" />
-                    </div>
+                  )
+                )}
+
+                {visibleLessons < course.lessons && (
+                  <div className="flex justify-center pt-4">
+                    <button
+                      onClick={() =>
+                        setVisibleLessons((prev) =>
+                          Math.min(prev + 7, course.lessons)
+                        )
+                      }
+                      className="px-6 py-2 text-[#567D4A] cursor-pointer"
+                    >
+                      Показать больше{" "}
+                      <IoIosArrowDown className="inline-block ml-2" />
+                    </button>
                   </div>
-                ))}
+                )}
               </div>
             </div>
 
-            {/* Instructor Info */}
-            <div className="bg-white rounded-2xl shadow-sm p-6">
-              <h2 className="text-xl font-bold text-gray-800 mb-6">
-                О преподавателе
-              </h2>
-              <div className="flex items-start gap-4">
-                <Image
-                  src={course.instructor.avatar}
-                  alt={course.instructor.name}
-                  width={80}
-                  height={80}
-                  className="w-20 h-20 rounded-full object-cover"
-                />
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                    {course.instructor.name}
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    Опытный преподаватель с многолетним стажем в области IT и
-                    дизайна. Специализируется на современных технологиях и
-                    помогает студентам достигать профессиональных высот.
-                  </p>
-                  <div className="flex items-center gap-6 text-sm text-gray-600">
-                    <div className="flex items-center gap-2">
-                      <MdSchool className="text-blue-600" />
-                      <span>5+ лет опыта</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <MdPeople className="text-blue-600" />
-                      <span>10,000+ студентов</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <MdStar className="text-blue-600" />
-                      <span>4.8 рейтинг</span>
+            <div className="bg-white rounded-[16px] shadow-sm p-6 mb-8">
+              <div className="flex items-center gap-3 mb-6">
+                <h1 className="text-[24px] font-bold text-[#0B0C0B]">
+                  Отзывы (142)
+                </h1>
+                <div className="items-center flex gap-2">
+                  <MdStar className="inline text-[#D9A055] text-[24px] mr-1" />
+                  <span className="font-bold text-[#616161] text-[16px]">
+                    4.5
+                  </span>
+                </div>
+              </div>
+
+              {/* Review Cards */}
+              <div className="space-y-4">
+                {reviews.slice(0, visibleReviews).map((review) => (
+                  <div
+                    key={review.id}
+                    className="border border-[#E5E5E5] rounded-[16px] p-6"
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="flex-shrink-0">
+                        <Image
+                          src={review.avatar}
+                          alt={review.name}
+                          width={60}
+                          height={60}
+                          className="w-15 h-15 rounded-full object-cover"
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-start justify-between mb-2">
+                          <div>
+                            <h3 className="text-[#0B0C0B] font-medium text-base">
+                              {review.name}
+                            </h3>
+                            <p className="text-[#616161] text-sm opacity-80">
+                              {review.date}, {review.time}
+                            </p>
+                          </div>
+                          <div className="flex items-center gap-1 flex-shrink-0 ml-4">
+                            {Array.from({ length: review.rating }, (_, i) => (
+                              <FaStar
+                                key={i}
+                                className="text-[#D9A055] text-[20px]"
+                              />
+                            ))}
+                          </div>
+                        </div>
+                        <p className="text-[#616161] text-sm leading-relaxed">
+                          {review.comment}
+                        </p>
+                      </div>
                     </div>
                   </div>
+                ))}
+
+                {visibleReviews < reviews.length && (
+                  <div className="flex justify-center pt-4">
+                    <button
+                      onClick={() =>
+                        setVisibleReviews((prev) =>
+                          Math.min(prev + 3, reviews.length)
+                        )
+                      }
+                      className="px-6 py-2 text-[#567D4A] cursor-pointer"
+                    >
+                      Показать больше{" "}
+                      <IoIosArrowDown className="inline-block ml-2" />
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Authors Info */}
+            <div className="bg-white rounded-[16px] shadow-sm p-6 mb-8">
+              <h1 className="text-[24px] font-bold text-[#0B0C0B] mb-6">
+                Об авторах
+              </h1>
+
+              {/* Authors Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="flex items-start gap-4 border border-[#E5E5E5] p-4 rounded-[12px] hover:bg-gray-50 transition-colors">
+                  <Image
+                    src={course.instructor.avatar}
+                    alt={course.instructor.name}
+                    width={80}
+                    height={80}
+                    className="w-20 h-20 rounded-full object-cover flex-shrink-0"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg font-semibold text-[#0B0C0B] mb-2">
+                      {course.instructor.name}
+                    </h3>
+                    <p className="text-[#616161] mb-2">Senior UX Designer</p>
+                  </div>
                 </div>
+
+                <div className="flex items-start gap-4 border border-[#E5E5E5] p-4 rounded-[12px] hover:bg-gray-50 transition-colors">
+                  <Image
+                    src="/Images/Yudina.svg"
+                    alt="Второй автор"
+                    width={80}
+                    height={80}
+                    className="w-20 h-20 rounded-full object-cover flex-shrink-0"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg font-semibold text-[#0B0C0B] mb-2">
+                      Юдина Екатерина
+                    </h3>
+                    <p className="text-[#616161] mb-2">Senior UX Designer</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Description */}
+              <div className="mt-6">
+                <p className="text-[#616161] leading-relaxed text-justify">
+                  Мастер-класс по UX - это комплексный и захватывающий курс,
+                  призванный дать участникам знания и навыки, необходимые для
+                  создания исключительного пользовательского опыта. В
+                  современном цифровом мире пользовательский опыт (UX) стал
+                  важнейшим фактором, определяющим успех любого продукта или
+                  услуги. Этот курс предназначен как для начинающих
+                  UX-дизайнеров, стремящихся заложить прочный фундамент, так и
+                  для опытных профессионалов, стремящихся усовершенствовать свои
+                  знания.
+                </p>
               </div>
             </div>
           </div>
 
           {/* Sidebar */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 flex flex-col gap-6">
+            {/* What You'll Learn */}
+            <div className="bg-white rounded-2xl shadow-sm p-6">
+              <ul className="flex flex-col gap-[10px]">
+                <li className="flex items-start gap-3">
+                  <a className="text-sm text-gray-600 pt-[11px] pl-[12px] pb-[9px] hover:bg-[#F6F6F6] active:bg-[#F6F6F6] transition-colors w-full cursor-pointer rounded-lg">
+                    О курсе
+                  </a>
+                </li>
+                <li className="flex items-start gap-3">
+                  <a className="text-sm text-gray-600 pt-[11px] pl-[12px] pb-[9px] hover:bg-[#F6F6F6] active:bg-[#F6F6F6] transition-colors w-full cursor-pointer rounded-lg">
+                    Ключевой момент
+                  </a>
+                </li>
+                <li className="flex items-start gap-3">
+                  <a className="text-sm text-gray-600 pt-[11px] pl-[12px] pb-[9px] hover:bg-[#F6F6F6] active:bg-[#F6F6F6] transition-colors w-full cursor-pointer rounded-lg">
+                    Отзывы
+                  </a>
+                </li>
+                <li className="flex items-start gap-3">
+                  <a className="text-sm text-gray-600 pt-[11px] pl-[12px] pb-[9px] hover:bg-[#F6F6F6] active:bg-[#F6F6F6] transition-colors w-full cursor-pointer rounded-lg">
+                    Об авторах
+                  </a>
+                </li>
+              </ul>
+            </div>
             <div className="sticky top-8">
               {/* Course Info Card */}
               <div className="bg-white rounded-2xl shadow-sm p-6 mb-6">
-                <div className="text-center mb-6">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">
+                <div className="text-start mb-6">
+                  <div className="text-3xl font-bold text-[#0B0C0B] mb-2">
                     {course.price}
                   </div>
-                  <div className="text-sm text-gray-600">
-                    Единоразовая оплата
+                  <div className="text-sm text-[#D9A055]">
+                    Предложение заканчивается через 16ч : 41м: 10с
                   </div>
                 </div>
 
                 <button className="w-full bg-[#567D4A] text-white py-3 px-6 rounded-[99px] font-semibold hover:text-[#567D4A] hover:bg-white border-[1px] border-[#567D4A] transition-colors mb-4">
-                  Записаться на курс
+                  Купить сейчас
+                </button>
+                <button className="w-full bg-white text-[#0B0C0B] py-3 px-6 rounded-[99px] font-semibold hover:text-[#567D4A] hover:bg-white border-[1px] border-[#E5E5E5] transition-colors mb-4">
+                  Добавьте в корзину
                 </button>
 
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between py-2">
+                <hr className="pt-5" />
+
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-[10px]">
                     <div className="flex items-center gap-2">
-                      <MdAccessTime className="text-gray-600" />
-                      <span className="text-sm text-gray-600">
-                        Длительность
-                      </span>
+                      <MdPeople className="text-[#567D4A]" />
                     </div>
                     <span className="text-sm font-medium text-gray-800">
-                      {course.duration}
+                      {course.participants.toLocaleString()} учащихся
                     </span>
                   </div>
 
-                  <div className="flex items-center justify-between py-2">
+                  <div className="flex items-center gap-[10px]">
                     <div className="flex items-center gap-2">
-                      <MdSchool className="text-gray-600" />
-                      <span className="text-sm text-gray-600">Уроков</span>
+                      <MdSchool className="text-[#567D4A]" />
                     </div>
                     <span className="text-sm font-medium text-gray-800">
-                      {course.lessons}
+                      {course.lessons} урока
                     </span>
                   </div>
 
-                  <div className="flex items-center justify-between py-2">
+                  <div className="flex items-center  gap-[10px]">
                     <div className="flex items-center gap-2">
-                      <MdPeople className="text-gray-600" />
-                      <span className="text-sm text-gray-600">Участников</span>
+                      <MdAccessTime className="text-[#567D4A]" />
                     </div>
                     <span className="text-sm font-medium text-gray-800">
-                      {course.participants.toLocaleString()}
+                      4 часа 9 минут
                     </span>
                   </div>
 
-                  <div className="flex items-center justify-between py-2">
+                  <div className="flex items-center gap-[10px]">
                     <div className="flex items-center gap-2">
-                      <MdStar className="text-gray-600" />
-                      <span className="text-sm text-gray-600">Рейтинг</span>
+                      <FiSmartphone className="text-[#567D4A]" />
                     </div>
                     <span className="text-sm font-medium text-gray-800">
-                      {course.rating}
+                      Доступно с мобильных и десктоп
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-[10px]">
+                    <div className="flex items-center gap-2">
+                      <MdPlayArrow className="text-[#567D4A]" />
+                    </div>
+                    <span className="text-sm font-medium text-gray-800">
+                      Пожизненный доступ
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-[10px]">
+                    <div className="flex items-center gap-2">
+                      <FiHeadphones className="text-[#567D4A]" />
+                    </div>
+                    <span className="text-sm font-medium text-gray-800">
+                      Звуковое описание в существующем аудио
                     </span>
                   </div>
                 </div>
-              </div>
-
-              {/* What You'll Learn */}
-              <div className="bg-white rounded-2xl shadow-sm p-6">
-                <h3 className="text-lg font-bold text-gray-800 mb-4">
-                  Что вы изучите
-                </h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <MdCheckCircle className="text-green-500 text-lg flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-gray-600">
-                      Основы и продвинутые концепции
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <MdCheckCircle className="text-green-500 text-lg flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-gray-600">
-                      Практические проекты и кейсы
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <MdCheckCircle className="text-green-500 text-lg flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-gray-600">
-                      Современные инструменты и технологии
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <MdCheckCircle className="text-green-500 text-lg flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-gray-600">
-                      Поддержка и обратная связь
-                    </span>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
