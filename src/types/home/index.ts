@@ -1,0 +1,38 @@
+// Course data interface
+export interface Course {
+  id: number;
+  title: string;
+  description: string;
+  instructor: {
+    name: string;
+    avatar: string;
+  };
+  progress: number;
+  image: string;
+  gradient: string;
+}
+
+// New Course data interface
+export interface NewCourse {
+  id: number;
+  title: string;
+  description: string;
+  rating: number;
+  price: string;
+  instructor: {
+    name: string;
+    avatar: string;
+  };
+  lessons: number;
+  participants: number;
+  duration: string;
+  image: string;
+}
+
+// Mentor data interface
+export interface Mentor {
+  id: number;
+  name: string;
+  title: string;
+  avatar: string;
+}

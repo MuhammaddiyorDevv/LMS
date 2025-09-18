@@ -64,6 +64,7 @@ export default function Navbar() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <button
+              aria-label="notifications"
               className={
                 "p-4 rounded-[16px] bg-white hover:cursor-pointer relative"
               }
