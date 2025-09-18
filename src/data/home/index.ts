@@ -1,4 +1,4 @@
-import { Course, NewCourse, Mentor } from '../../types/home';
+import { Course, NewCourse, Mentor } from "../../types/home";
 
 // Mentor data
 export const mentors: Mentor[] = [

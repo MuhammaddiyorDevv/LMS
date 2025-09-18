@@ -44,9 +44,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
               </span>
             </div>
           </div>
-          <p className="text-2xl font-bold text-[#006ADC]">
-            {course.price}
-          </p>
+          <p className="text-2xl font-bold text-[#006ADC]">{course.price}</p>
         </div>
 
         {/* Course Description */}
@@ -86,9 +84,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
           </div>
           <div className="flex items-center gap-2">
             <IoMdTime className="text-[#616161] text-sm" />
-            <span className="text-xs text-gray-600">
-              {course.duration}
-            </span>
+            <span className="text-xs text-gray-600">{course.duration}</span>
           </div>
         </div>
       </div>

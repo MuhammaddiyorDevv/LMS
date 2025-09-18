@@ -34,16 +34,13 @@ const AllCoursesPage = () => {
 
   return (
     <div className="flex gap-5 bg-white rounded-[20px] p-5">
-      <FiltersSidebar 
-        priceRange={priceRange} 
-                  onPriceChange={handlePriceChange}
-                />
+      <FiltersSidebar
+        priceRange={priceRange}
+        onPriceChange={handlePriceChange}
+      />
       <div className="w-[75%] p-1">
         <h1 className="font-semibold text-[24px]">Все курсы</h1>
-        <SearchBar 
-          searchTerm={searchTerm} 
-          onSearchChange={setSearchTerm} 
-        />
+        <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
         <CoursesGrid courses={filteredCourses} />
       </div>
     </div>

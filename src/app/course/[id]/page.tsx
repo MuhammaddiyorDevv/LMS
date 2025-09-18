@@ -322,7 +322,7 @@ const CourseDetailPage = () => {
                         <MdPlayArrow className="text-[#567D4A] text-[36px]" />
                       </div>
                     </div>
-                  )
+                  ),
                 )}
 
                 {visibleLessons < course.lessons && (
@@ -330,7 +330,7 @@ const CourseDetailPage = () => {
                     <button
                       onClick={() =>
                         setVisibleLessons((prev) =>
-                          Math.min(prev + 7, course.lessons)
+                          Math.min(prev + 7, course.lessons),
                         )
                       }
                       className="px-6 py-2 text-[#567D4A] cursor-pointer"
@@ -405,7 +405,7 @@ const CourseDetailPage = () => {
                     <button
                       onClick={() =>
                         setVisibleReviews((prev) =>
-                          Math.min(prev + 3, reviews.length)
+                          Math.min(prev + 3, reviews.length),
                         )
                       }
                       className="px-6 py-2 text-[#567D4A] cursor-pointer"

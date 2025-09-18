@@ -40,7 +40,7 @@ const NewCoursesSection = () => {
             key={course.id}
             className="bg-white rounded-2xl border border-[#E5E5E5] hover:shadow-xl transition-all duration-500 ease-in-out overflow-hidden transform hover:scale-105"
             style={{
-              animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`
+              animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`,
             }}
           >
             {/* Course Image */}

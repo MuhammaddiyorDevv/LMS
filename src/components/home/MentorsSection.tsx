@@ -18,7 +18,9 @@ const MentorsSection = () => {
   };
 
   const prevMentorSlide = () => {
-    setCurrentMentorSlide((prev) => (prev - 1 + totalMentorSlides) % totalMentorSlides);
+    setCurrentMentorSlide(
+      (prev) => (prev - 1 + totalMentorSlides) % totalMentorSlides,
+    );
   };
 
   const getCurrentMentors = () => {
@@ -52,8 +54,8 @@ const MentorsSection = () => {
             Ваши наставники - эксперты в деле
           </h1>
           <p className="text-gray-500 text-[16px]">
-            Практики, которые помогут вам разобраться в сложных темах,
-            поделятся ценными инсайтами
+            Практики, которые помогут вам разобраться в сложных темах, поделятся
+            ценными инсайтами
           </p>
         </div>
         <div className="flex gap-2">
@@ -75,7 +77,7 @@ const MentorsSection = () => {
       </div>
 
       {/* Mentors Cards Grid */}
-      <div 
+      <div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 carousel-container"
         onMouseEnter={() => setIsMentorsPaused(true)}
         onMouseLeave={() => setIsMentorsPaused(false)}
@@ -84,9 +86,9 @@ const MentorsSection = () => {
           <div
             key={mentor.id}
             className="bg-white rounded-2xl border border-[#E5E5E5] flex items-center gap-4 hover:shadow-lg transition-all duration-500 ease-in-out transform hover:scale-105 carousel-item"
-            style={{ 
+            style={{
               padding: "16px 34px 16px 16px",
-              animation: `slideInFromLeft 0.6s ease-out ${index * 0.1}s both`
+              animation: `slideInFromLeft 0.6s ease-out ${index * 0.1}s both`,
             }}
           >
             {/* Profile Picture */}

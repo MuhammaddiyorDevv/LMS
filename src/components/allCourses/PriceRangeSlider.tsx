@@ -54,7 +54,6 @@ const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
     return 100 - ((maxPrice - min) / (max - min)) * 100;
   };
 
-
   return (
     <div className="w-full p-4 bg-gradient-to-br to-white rounded-2xl">
       <div className="space-y-4">
