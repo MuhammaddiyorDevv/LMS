@@ -27,9 +27,7 @@ export default function RootLayout({
           <Navbar />
 
           {/* Page content */}
-          <main className="flex-1 rounded-[20px] overflow-y-auto mt-[20px]">
-            {children}
-          </main>
+          <main className="flex-1 overflow-y-auto mt-[20px]">{children}</main>
         </div>
       </body>
     </html>

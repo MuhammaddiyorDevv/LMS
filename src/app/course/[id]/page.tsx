@@ -275,27 +275,7 @@ const CourseDetailPage = () => {
 
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <div className="sticky flex flex-col top-8 gap-5">
-              {/* What You'll Learn */}
-              <div className="bg-white rounded-2xl shadow-sm p-6">
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <span className="text-sm text-gray-600">О курсе</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-sm text-gray-600">
-                      Ключевой момент
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-sm text-gray-600">Отзывы</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-sm text-gray-600">Об авторах</span>
-                  </li>
-                </ul>
-              </div>
-
+            <div className="sticky top-8">
               {/* Course Info Card */}
               <div className="bg-white rounded-2xl shadow-sm p-6 mb-6">
                 <div className="text-center mb-6">
@@ -354,6 +334,39 @@ const CourseDetailPage = () => {
                     </span>
                   </div>
                 </div>
+              </div>
+
+              {/* What You'll Learn */}
+              <div className="bg-white rounded-2xl shadow-sm p-6">
+                <h3 className="text-lg font-bold text-gray-800 mb-4">
+                  Что вы изучите
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <MdCheckCircle className="text-green-500 text-lg flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-600">
+                      Основы и продвинутые концепции
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <MdCheckCircle className="text-green-500 text-lg flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-600">
+                      Практические проекты и кейсы
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <MdCheckCircle className="text-green-500 text-lg flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-600">
+                      Современные инструменты и технологии
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <MdCheckCircle className="text-green-500 text-lg flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-600">
+                      Поддержка и обратная связь
+                    </span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
