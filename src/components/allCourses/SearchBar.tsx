@@ -8,7 +8,10 @@ interface SearchBarProps {
   onSearchChange: (value: string) => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, onSearchChange }) => {
+const SearchBar: React.FC<SearchBarProps> = ({
+  searchTerm,
+  onSearchChange,
+}) => {
   return (
     <div className="mt-4 mb-6">
       <div className="relative">

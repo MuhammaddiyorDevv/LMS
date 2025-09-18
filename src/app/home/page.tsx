@@ -7,7 +7,6 @@ import MentorsSection from "../../components/home/MentorsSection";
 import NewCoursesSection from "../../components/home/NewCoursesSection";
 
 export default function Home() {
-
   return (
     <div className="flex flex-col gap-5">
       <DashboardSection />

@@ -2,11 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import {
-  MdOutlineReplay,
-  MdExpandMore,
-  MdExpandLess,
-} from "react-icons/md";
+import { MdOutlineReplay, MdExpandMore, MdExpandLess } from "react-icons/md";
 import PriceRangeSlider from "./PriceRangeSlider";
 import "../../styles/custom-checkbox.css";
 
@@ -15,14 +11,12 @@ interface FiltersSidebarProps {
   onPriceChange: (min: number, max: number) => void;
 }
 
-const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
-  onPriceChange,
-}) => {
+const FiltersSidebar: React.FC<FiltersSidebarProps> = ({ onPriceChange }) => {
   const [expandedAccordions, setExpandedAccordions] = useState<number[]>([]);
 
   const toggleAccordion = (index: number) => {
     setExpandedAccordions((prev) =>
-      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
     );
   };
 
@@ -33,17 +27,12 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
         <h1 className="font-semibold">Филтры</h1>
         <MdOutlineReplay size={20} />
       </div>
-      
+
       {/* Filters Content */}
       <div className="p-4">
         <div className="flex justify-between items-center mb-4">
           <h5 className="font-semibold text-[14px]">Толко премиум</h5>
-          <Image
-            src="/Images/Switch.svg"
-            alt="Switch"
-            width={24}
-            height={24}
-          />
+          <Image src="/Images/Switch.svg" alt="Switch" width={24} height={24} />
         </div>
         <hr className="text-[#F2F1F5] mb-4" />
 
@@ -76,7 +65,7 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
         </div>
 
         <hr className="text-[#F2F1F5] mb-4" />
-        
+
         {/* Accordion 2: По специализации */}
         <div className="mb-4">
           <button
@@ -119,9 +108,7 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
                 <label className="container">
                   <input type="checkbox" />
                   <span className="checkmark"></span>
-                  <span className="text-sm text-gray-700">
-                    Маркетинг и SMM
-                  </span>
+                  <span className="text-sm text-gray-700">Маркетинг и SMM</span>
                 </label>
                 <label className="container">
                   <input type="checkbox" />
@@ -150,7 +137,7 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
         </div>
 
         <hr className="text-[#F2F1F5] mb-4" />
-        
+
         {/* Accordion 3: По уровню */}
         <div className="mb-4">
           <button
@@ -195,7 +182,7 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
         </div>
 
         <hr className="text-[#F2F1F5] mb-4" />
-        
+
         {/* Accordion 4: По языку */}
         <div className="mb-4">
           <button
@@ -240,7 +227,7 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
         </div>
 
         <hr className="text-[#F2F1F5] mb-4" />
-        
+
         {/* Accordion 5: По статусу ментора */}
         <div className="mb-4">
           <button

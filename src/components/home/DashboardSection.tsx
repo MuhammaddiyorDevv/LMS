@@ -27,9 +27,7 @@ const DashboardSection = () => {
         {/* Activity Widget */}
         <div className="bg-white rounded-2xl p-4 border border-[#E5E5E5]">
           <div className="flex justify-between items-center mb-[10px]">
-            <h2 className="text-[16px] font-semibold text-black">
-              Активность
-            </h2>
+            <h2 className="text-[16px] font-semibold text-black">Активность</h2>
             <div className="relative">
               <select className="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
                 <option>Сортировка</option>

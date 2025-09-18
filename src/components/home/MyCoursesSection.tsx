@@ -69,7 +69,7 @@ const MyCoursesSection = () => {
       </div>
 
       {/* Course Cards Grid */}
-      <div 
+      <div
         className="grid grid-cols-1 lg:grid-cols-3 gap-6 carousel-container"
         onMouseEnter={() => setIsCoursesPaused(true)}
         onMouseLeave={() => setIsCoursesPaused(false)}
@@ -79,7 +79,7 @@ const MyCoursesSection = () => {
             key={course.id}
             className="bg-white rounded-2xl items-start flex hover:shadow-xl transition-all duration-500 ease-in-out overflow-hidden p-4 border border-[#E5E5E5] transform hover:scale-105 carousel-item"
             style={{
-              animation: `slideInFromRight 0.6s ease-out ${index * 0.1}s both`
+              animation: `slideInFromRight 0.6s ease-out ${index * 0.1}s both`,
             }}
           >
             {/* Course Image */}

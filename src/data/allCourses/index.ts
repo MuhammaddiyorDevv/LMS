@@ -1,4 +1,4 @@
-import { AllCoursesPageCourse } from '../../types/allCourses';
+import { AllCoursesPageCourse } from "../../types/allCourses";
 
 export const allCoursesData: AllCoursesPageCourse[] = [
   {
