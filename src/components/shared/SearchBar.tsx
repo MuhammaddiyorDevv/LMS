@@ -6,11 +6,13 @@ import { MdSearch } from "react-icons/md";
 interface SearchBarProps {
   searchTerm: string;
   onSearchChange: (value: string) => void;
+  placeholder?: string;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({
   searchTerm,
   onSearchChange,
+  placeholder = "Поиск",
 }) => {
   return (
     <div className="mt-4 mb-6">
@@ -21,7 +23,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         />
         <input
           type="text"
-          placeholder="Ищите курсы"
+          placeholder={placeholder}
           value={searchTerm}
           onChange={(e) => onSearchChange(e.target.value)}
           className="w-full pl-10 pr-4 py-3 border border-[#E5E5E5] rounded-[12px] outline-none transition-all"

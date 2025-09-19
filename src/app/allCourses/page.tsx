@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { allCoursesData } from "../../data/allCourses";
-import FiltersSidebar from "../../components/allCourses/FiltersSidebar";
-import SearchBar from "../../components/allCourses/SearchBar";
+import FiltersSidebar from "../../components/shared/FiltersSidebar";
+import SearchBar from "../../components/shared/SearchBar";
 import CoursesGrid from "../../components/allCourses/CoursesGrid";
 const AllCoursesPage = () => {
   const [priceRange, setPriceRange] = useState({ min: 0, max: 10000000 });
@@ -37,10 +37,15 @@ const AllCoursesPage = () => {
       <FiltersSidebar
         priceRange={priceRange}
         onPriceChange={handlePriceChange}
+        type="courses"
       />
       <div className="w-[75%] p-1">
         <h1 className="font-semibold text-[24px]">Все курсы</h1>
-        <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+        <SearchBar 
+          searchTerm={searchTerm} 
+          onSearchChange={setSearchTerm} 
+          placeholder="Ищите курсы"
+        />
         <CoursesGrid courses={filteredCourses} />
       </div>
     </div>
