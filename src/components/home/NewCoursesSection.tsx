@@ -68,7 +68,7 @@ const NewCoursesSection = () => {
                     </span>
                   </div>
                 </div>
-                <p className="text-2xl font-bold text-[#006ADC]">
+                <p className="font-semibold text-[#006ADC] whitespace-nowrap text-[clamp(12px,2.2vw,20px)]">
                   {course.price}
                 </p>
               </div>

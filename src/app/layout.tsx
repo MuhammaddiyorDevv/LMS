@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
 import Sidebar from "@/components/layout/Sidebar";
-import Navbar from "@/components/layout/Navbar";
+import NavbarDesktop from "@/components/layout/NavbarDesktop";
+import NavbarMobile from "@/components/layout/NavbarMobile";
 import SidebarMobile from "@/components/layout/SidebarMobile";
 
 export const metadata: Metadata = {
@@ -24,12 +25,20 @@ export default function RootLayout({
 
         {/* Asosiy qism */}
         <div className="flex flex-col flex-1 px-[24px] sm:ml-64 ml-0 pt-[56px] sm:pt-0">
-          {/* Navbar */}
+          {/* Mobile Sidebar */}
           <div className="sm:hidden">
             <SidebarMobile />
           </div>
 
-          <Navbar />
+          {/* Desktop Navbar */}
+          <div className="hidden sm:block">
+            <NavbarDesktop />
+          </div>
+
+          {/* Mobile Navbar */}
+          <div className="sm:hidden">
+            <NavbarMobile />
+          </div>
 
           {/* Page content */}
           <main className="flex-1 mt-[20px] pb-20 sm:pb-0">{children}</main>

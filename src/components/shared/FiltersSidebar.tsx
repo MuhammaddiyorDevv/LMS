@@ -12,7 +12,10 @@ interface FiltersSidebarProps {
   type: "courses" | "mentors";
 }
 
-const FiltersSidebar: React.FC<FiltersSidebarProps> = ({ onPriceChange, type }) => {
+const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
+  onPriceChange,
+  type,
+}) => {
   const [expandedAccordions, setExpandedAccordions] = useState<number[]>([]);
 
   const toggleAccordion = (index: number) => {
@@ -30,29 +33,29 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({ onPriceChange, type }) 
           {
             id: 0,
             title: "Ценовой диапазон",
-            content: "priceRange"
+            content: "priceRange",
           },
           {
             id: 4,
             title: "По специализации",
-            content: "specialization"
+            content: "specialization",
           },
           {
             id: 1,
             title: "По уровню",
-            content: "level"
+            content: "level",
           },
           {
             id: 2,
             title: "По языку",
-            content: "language"
+            content: "language",
           },
           {
             id: 3,
             title: "По статусу ментора",
-            content: "mentorStatus"
-          }
-        ]
+            content: "mentorStatus",
+          },
+        ],
       };
     } else {
       return {
@@ -61,29 +64,29 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({ onPriceChange, type }) 
           {
             id: 0,
             title: "Ценовой диапазон",
-            content: "priceRange"
+            content: "priceRange",
           },
           {
             id: 1,
             title: "По специализации",
-            content: "specialization"
+            content: "specialization",
           },
           {
             id: 2,
             title: "По опыту",
-            content: "experience"
+            content: "experience",
           },
           {
             id: 3,
             title: "По языку",
-            content: "language"
+            content: "language",
           },
           {
             id: 4,
             title: "По статусу",
-            content: "status"
-          }
-        ]
+            content: "status",
+          },
+        ],
       };
     }
   };
@@ -95,23 +98,17 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({ onPriceChange, type }) 
       <label className="container">
         <input type="checkbox" defaultChecked />
         <span className="checkmark"></span>
-        <span className="text-sm text-gray-700">
-          Все специализации
-        </span>
+        <span className="text-sm text-gray-700">Все специализации</span>
       </label>
       <label className="container">
         <input type="checkbox" />
         <span className="checkmark"></span>
-        <span className="text-sm text-gray-700">
-          IT и программирование
-        </span>
+        <span className="text-sm text-gray-700">IT и программирование</span>
       </label>
       <label className="container">
         <input type="checkbox" />
         <span className="checkmark"></span>
-        <span className="text-sm text-gray-700">
-          Дизайн и креатив
-        </span>
+        <span className="text-sm text-gray-700">Дизайн и креатив</span>
       </label>
       <label className="container">
         <input type="checkbox" />
@@ -128,16 +125,12 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({ onPriceChange, type }) 
       <label className="container">
         <input type="checkbox" />
         <span className="checkmark"></span>
-        <span className="text-sm text-gray-700">
-          Образование и наука
-        </span>
+        <span className="text-sm text-gray-700">Образование и наука</span>
       </label>
       <label className="container">
         <input type="checkbox" />
         <span className="checkmark"></span>
-        <span className="text-sm text-gray-700">
-          Финансы и инвестиции
-        </span>
+        <span className="text-sm text-gray-700">Финансы и инвестиции</span>
       </label>
     </div>
   );
@@ -356,9 +349,7 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({ onPriceChange, type }) 
                 )}
               </button>
               {expandedAccordions.includes(accordion.id) && (
-                <div>
-                  {renderAccordionContent(accordion.content)}
-                </div>
+                <div>{renderAccordionContent(accordion.content)}</div>
               )}
             </div>
             {index < config.accordions.length - 1 && (

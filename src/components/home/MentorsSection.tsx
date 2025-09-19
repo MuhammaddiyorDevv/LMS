@@ -50,15 +50,16 @@ const MentorsSection = () => {
       {/* Header Section */}
       <div className="mb-4 flex justify-between items-center">
         <div>
-          <h1 className="text-[24px] font-bold text-black">
-            Ваши наставники - эксперты в деле
+          <h1 className="text-xl sm:text-[24px] font-bold text-black flex">
+            Ваши наставники
+            <span className="hidden sm:flex">- эксперты в деле</span>
           </h1>
-          <p className="text-gray-500 text-[16px]">
+          <p className="text-gray-500 text-[14px] sm:text-[16px]">
             Практики, которые помогут вам разобраться в сложных темах, поделятся
             ценными инсайтами
           </p>
         </div>
-        <div className="flex gap-2">
+        <div className="hidden sm:flex gap-2">
           <button
             aria-label="left"
             className="p-2 text-[16px] hover:bg-gray-100 rounded-lg transition-colors text-[#999999]"
@@ -78,21 +79,20 @@ const MentorsSection = () => {
 
       {/* Mentors Cards Grid */}
       <div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 carousel-container"
+        className="flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-visible"
         onMouseEnter={() => setIsMentorsPaused(true)}
         onMouseLeave={() => setIsMentorsPaused(false)}
       >
         {getCurrentMentors().map((mentor, index) => (
           <div
             key={mentor.id}
-            className="bg-white rounded-2xl border border-[#E5E5E5] flex items-center gap-4 hover:shadow-lg transition-all duration-500 ease-in-out transform hover:scale-105 carousel-item"
+            className="bg-white p-3 w-full sm:py-4 sm:pl-4 sm:pr-[34px] rounded-2xl border border-[#E5E5E5] flex flex-col items-start sm:flex-row sm:items-center gap-4 hover:shadow-lg transition-all duration-500 ease-in-out transform hover:scale-105"
             style={{
-              padding: "16px 34px 16px 16px",
               animation: `slideInFromLeft 0.6s ease-out ${index * 0.1}s both`,
             }}
           >
             {/* Profile Picture */}
-            <div className="w-16 h-16 flex-shrink-0">
+            <div className="w-[42px] h-[42px] sm:w-16 sm:h-16 flex-shrink-0">
               <Image
                 src={mentor.avatar}
                 alt="Mentor profile"
@@ -104,18 +104,23 @@ const MentorsSection = () => {
 
             {/* Mentor Info */}
             <div className="flex-1">
-              <h3 className="text-lg font-bold text-black mb-1">
+              <h3 className="text-black mb-1 font-semibold text-[16px]">
                 {mentor.name}
               </h3>
-              <p className="text-gray-500 text-sm">{mentor.title}</p>
+              <p className="text-gray-500 text-[12px]">{mentor.title}</p>
             </div>
 
             {/* Play Button */}
             <button
               aria-label="Play"
-              className="p-3 rounded-full transition-colors"
+              className="hidden sm:flex p-3 rounded-full transition-colors"
             >
               <FaPlay className="text-[#567D4A] text-[18px]" />
+            </button>
+
+            {/* Mobile Button */}
+            <button className="rounded-[99px] bg-[#567D4A] text-white py-[11px] px-[52px] text-[12px] flex sm:hidden">
+              Continue
             </button>
           </div>
         ))}

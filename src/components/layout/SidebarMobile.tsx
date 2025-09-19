@@ -23,7 +23,11 @@ export default function SidebarMobile() {
               className={`p-2.5 rounded-xl transition-all duration-300 ease-in-out 
                          group-hover:bg-[#567D4A] group-hover:text-white 
                          group-hover:-translate-y-1 transform
-                         ${isActive ? "bg-[#567D4A] text-white -translate-y-1" : ""}`}
+                         ${
+                           isActive
+                             ? "bg-[#567D4A] text-white -translate-y-1"
+                             : ""
+                         }`}
             >
               <item.icon className="w-6 h-6" />
             </div>

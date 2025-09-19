@@ -5,7 +5,8 @@ export const mentorsData: Mentor[] = [
     id: 1,
     name: "Алишер Усманов",
     title: "Senior Frontend Developer",
-    description: "Опытный разработчик с 8+ летним стажем в React, Vue.js и TypeScript. Помогу освоить современные технологии веб-разработки.",
+    description:
+      "Опытный разработчик с 8+ летним стажем в React, Vue.js и TypeScript. Помогу освоить современные технологии веб-разработки.",
     rating: 4.9,
     hourlyRate: "500,000 сум/час",
     avatar: "/Images/Alisher.svg",
@@ -17,13 +18,14 @@ export const mentorsData: Mentor[] = [
     studentsCount: 150,
     coursesCount: 12,
     responseTime: "1 час",
-    location: "Ташкент"
+    location: "Ташкент",
   },
   {
     id: 2,
     name: "Алёна Петрова",
     title: "UI/UX Designer",
-    description: "Креативный дизайнер с фокусом на пользовательский опыт. Специализируюсь на создании интуитивных интерфейсов.",
+    description:
+      "Креативный дизайнер с фокусом на пользовательский опыт. Специализируюсь на создании интуитивных интерфейсов.",
     rating: 4.8,
     hourlyRate: "400,000 сум/час",
     avatar: "/Images/Alyona.svg",
@@ -35,13 +37,14 @@ export const mentorsData: Mentor[] = [
     studentsCount: 89,
     coursesCount: 8,
     responseTime: "2 часа",
-    location: "Москва"
+    location: "Москва",
   },
   {
     id: 3,
     name: "Кристина Иванова",
     title: "Digital Marketing Expert",
-    description: "Эксперт по цифровому маркетингу с опытом работы в крупных IT-компаниях. Помогу освоить SMM, контент-маркетинг и аналитику.",
+    description:
+      "Эксперт по цифровому маркетингу с опытом работы в крупных IT-компаниях. Помогу освоить SMM, контент-маркетинг и аналитику.",
     rating: 4.7,
     hourlyRate: "350,000 сум/час",
     avatar: "/Images/Kristina.svg",
@@ -53,13 +56,14 @@ export const mentorsData: Mentor[] = [
     studentsCount: 120,
     coursesCount: 15,
     responseTime: "3 часа",
-    location: "Санкт-Петербург"
+    location: "Санкт-Петербург",
   },
   {
     id: 4,
     name: "Лола Каримова",
     title: "Business Coach",
-    description: "Бизнес-коуч и консультант по развитию стартапов. Помогу создать и масштабировать ваш бизнес-проект.",
+    description:
+      "Бизнес-коуч и консультант по развитию стартапов. Помогу создать и масштабировать ваш бизнес-проект.",
     rating: 4.9,
     hourlyRate: "600,000 сум/час",
     avatar: "/Images/Lola.svg",
@@ -71,13 +75,14 @@ export const mentorsData: Mentor[] = [
     studentsCount: 200,
     coursesCount: 20,
     responseTime: "4 часа",
-    location: "Ташкент"
+    location: "Ташкент",
   },
   {
     id: 5,
     name: "Екатерина Смирнова",
     title: "Data Science Specialist",
-    description: "Специалист по анализу данных и машинному обучению. Помогу освоить Python, статистику и работу с большими данными.",
+    description:
+      "Специалист по анализу данных и машинному обучению. Помогу освоить Python, статистику и работу с большими данными.",
     rating: 4.8,
     hourlyRate: "450,000 сум/час",
     avatar: "/Images/Yekaterina.svg",
@@ -89,13 +94,14 @@ export const mentorsData: Mentor[] = [
     studentsCount: 95,
     coursesCount: 10,
     responseTime: "2 часа",
-    location: "Новосибирск"
+    location: "Новосибирск",
   },
   {
     id: 6,
     name: "Юдина Анна",
     title: "Financial Advisor",
-    description: "Финансовый консультант с опытом работы в банковской сфере. Помогу разобраться в инвестициях и личных финансах.",
+    description:
+      "Финансовый консультант с опытом работы в банковской сфере. Помогу разобраться в инвестициях и личных финансах.",
     rating: 4.6,
     hourlyRate: "380,000 сум/час",
     avatar: "/Images/Yudina.svg",
@@ -107,6 +113,6 @@ export const mentorsData: Mentor[] = [
     studentsCount: 75,
     coursesCount: 6,
     responseTime: "5 часов",
-    location: "Екатеринбург"
-  }
+    location: "Екатеринбург",
+  },
 ];

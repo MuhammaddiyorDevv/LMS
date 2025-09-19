@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { allCoursesData } from "../../data/allCourses";
 import FiltersSidebar from "../../components/shared/FiltersSidebar";
 import SearchBar from "../../components/shared/SearchBar";
@@ -9,9 +9,12 @@ const AllCoursesPage = () => {
   const [priceRange, setPriceRange] = useState({ min: 0, max: 10000000 });
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handlePriceChange = (min: number, max: number) => {
-    setPriceRange({ min, max });
-  };
+  const handlePriceChange = useCallback((min: number, max: number) => {
+    setPriceRange((prev) => {
+      if (prev.min === min && prev.max === max) return prev;
+      return { min, max };
+    });
+  }, []);
 
   // Function to extract numeric value from price string
   const extractPrice = (priceString: string): number => {
@@ -41,9 +44,9 @@ const AllCoursesPage = () => {
       />
       <div className="w-[75%] p-1">
         <h1 className="font-semibold text-[24px]">Все курсы</h1>
-        <SearchBar 
-          searchTerm={searchTerm} 
-          onSearchChange={setSearchTerm} 
+        <SearchBar
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
           placeholder="Ищите курсы"
         />
         <CoursesGrid courses={filteredCourses} />
