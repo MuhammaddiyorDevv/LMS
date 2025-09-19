@@ -28,7 +28,7 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
   const getConfig = () => {
     if (type === "courses") {
       return {
-        priceRange: { min: 0, max: 10000000, step: 100000, priceGap: 500000 },
+        priceRange: { min: 0, max: 4500000, step: 100000, priceGap: 500000 },
         accordions: [
           {
             id: 0,
