@@ -1,3 +1,5 @@
+import React from 'react';
+
 // Mentor data interface for mentors page
 export interface Mentor {
   id: number;
@@ -16,6 +18,12 @@ export interface Mentor {
   coursesCount: number;
   responseTime: string; // e.g., "2 hours"
   location?: string;
+  icons?: {
+    experience: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    courses: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    students: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    heart: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  };
 }
 
 // Filter options interface for mentors
