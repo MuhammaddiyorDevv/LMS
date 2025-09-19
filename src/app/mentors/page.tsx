@@ -27,8 +27,8 @@ const MentorsPage = () => {
       mentor.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       mentor.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       mentor.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      mentor.specialization.some(spec => 
-        spec.toLowerCase().includes(searchTerm.toLowerCase())
+      mentor.specialization.some((spec) =>
+        spec.toLowerCase().includes(searchTerm.toLowerCase()),
       );
     const matchesPrice =
       mentorPrice >= priceRange.min && mentorPrice <= priceRange.max;
@@ -45,9 +45,9 @@ const MentorsPage = () => {
       />
       <div className="w-[75%] p-1">
         <h1 className="font-semibold text-[24px]">Все менторы</h1>
-        <SearchBar 
-          searchTerm={searchTerm} 
-          onSearchChange={setSearchTerm} 
+        <SearchBar
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
           placeholder="Ищите менторов"
         />
         <MentorsGrid mentors={filteredMentors} />

@@ -45,12 +45,14 @@ const MyCoursesSection = () => {
       {/* Header Section */}
       <div className="mb-4 flex justify-between items-center">
         <div>
-          <h1 className="text-[24px] font-bold text-black">Ваши курсы</h1>
-          <p className="text-gray-500 text-[16px]">
+          <h1 className="text-[20px] sm:text-[24px] font-bold text-black">
+            Ваши курсы
+          </h1>
+          <p className="text-gray-500 text-[14px] font-normal sm:text-[16px]">
             Продолжайте обучение в удобное время вместе с нами
           </p>
         </div>
-        <div className="flex gap-2">
+        <div className="hidden sm:flex gap-2">
           <button
             aria-label="left"
             className="p-2 text-[16px] hover:bg-gray-100 rounded-lg transition-colors text-[#999999]"
@@ -77,13 +79,13 @@ const MyCoursesSection = () => {
         {getCurrentCourses().map((course, index) => (
           <div
             key={course.id}
-            className="bg-white rounded-2xl items-start flex hover:shadow-xl transition-all duration-500 ease-in-out overflow-hidden p-4 border border-[#E5E5E5] transform hover:scale-105 carousel-item"
+            className="w-[220px] sm:w-full bg-white rounded-2xl items-start flex flex-col sm:flex-row hover:shadow-xl gap-3 sm:gap-3.5 transition-all duration-500 ease-in-out overflow-hidden p-3 sm:p-4 border border-[#E5E5E5] transform hover:scale-105 carousel-item"
             style={{
               animation: `slideInFromRight 0.6s ease-out ${index * 0.1}s both`,
             }}
           >
             {/* Course Image */}
-            <div className="w-[84px] h-[84px] flex-shrink-0">
+            <div className="w-[204px] h-40 sm:w-[84px] sm:h-[84px] flex-shrink-0">
               <Image
                 src={course.image}
                 alt="Course thumbnail"
@@ -94,28 +96,28 @@ const MyCoursesSection = () => {
             </div>
 
             {/* Course Content */}
-            <div className="flex-1 px-4 h-[84px] flex flex-col justify-between">
+            <div className="flex-1 h-[84px] sm:h-auto flex flex-col justify-between">
               <div>
-                <h2 className="text-sm font-bold text-gray-900 mb-1 line-clamp-1">
+                <h2 className="text-sm font-semibold text-gray-900 mb-1">
                   {course.title}
                 </h2>
-                <p className="text-gray-600 mb-1 line-clamp-1 text-xs">
+                <p className="text-gray-600 mb-1 line-clamp-2 sm:line-clamp-1 text-xs">
                   {course.description}
                 </p>
               </div>
 
               <div>
                 {/* Instructor */}
-                <div className="flex items-center mb-1">
+                <div className="flex items-center mt-3 mb-3.5">
                   <Image
                     src={course.instructor.avatar}
                     alt="Instructor"
-                    width={16}
-                    height={16}
+                    width={20}
+                    height={20}
                     className="w-4 h-4 rounded-full object-cover mr-1"
                   />
                   <div>
-                    <p className="font-medium text-[#616161] text-xs">
+                    <p className="sm:font-normal font-medium text-[#616161] text-[12px] sm:text-[10px]">
                       {course.instructor.name}
                     </p>
                   </div>
@@ -123,7 +125,7 @@ const MyCoursesSection = () => {
 
                 {/* Progress Bar */}
                 <div>
-                  <div className="flex justify-end items-center mb-1">
+                  <div className="flex justify-end items-center ">
                     <span className="text-xs font-semibold text-[#567D4A]">
                       {course.progress}%
                     </span>

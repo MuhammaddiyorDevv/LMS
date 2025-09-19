@@ -10,7 +10,7 @@ interface CoursesGridProps {
 
 const CoursesGrid: React.FC<CoursesGridProps> = ({ courses }) => {
   return (
-    <div className="gap-6 mt-6 grid grid-cols-2">
+    <div className="gap-6 mt-6 grid grid-cols-1">
       {courses.map((course) => (
         <CourseCard key={course.id} course={course} />
       ))}

@@ -21,10 +21,9 @@ const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
   const [maxPrice, setMaxPrice] = useState(max);
 
   useEffect(() => {
-    if (onPriceChange) {
-      onPriceChange(minPrice, maxPrice);
-    }
-  }, [minPrice, maxPrice, onPriceChange]);
+    // Only call when numeric values change; ignore callback identity changes
+    onPriceChange?.(minPrice, maxPrice);
+  }, [minPrice, maxPrice]);
 
   const handleMinPriceChange = (value: number) => {
     const newMinPrice = Math.max(min, Math.min(value, maxPrice - priceGap));

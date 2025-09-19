@@ -24,13 +24,18 @@ export default function Navbar() {
   // Check if we're on a course detail page
   const isCourseDetailPage = pathname.startsWith("/course/");
 
+  // Hide navbar on notifications page (mobile notifications full page)
+  if (pathname.startsWith("/notifications")) {
+    return null;
+  }
+
   return (
     <header className="bg-[#F6F6F6] border-b border-b-[#E5E5E5] mt-[12px]">
       <div className="fixed top-0 left-0 right-0 z-50 bg-[#F6F6F6] sm:static">
-        <div className="flex items-center justify-between h-[56px] gap-3 px-[24px] sm:px-0">
+        <div className="flex mb-3 items-center justify-between h-[56px] gap-3 px-[24px] sm:px-0">
           <img src="/Images/slogo.svg" alt="logo" className="flex sm:hidden" />
 
-          <div className="hidden sm:flex items-center justify-start">
+          <div className="hidden sm:flex mt-3 items-center justify-start">
             <div className="relative w-[420px]">
               {isCourseDetailPage ? (
                 <button
@@ -75,150 +80,177 @@ export default function Navbar() {
             >
               <Heart size={20} />
             </button>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button
-                  aria-label="notifications"
-                  className={
-                    "hidden sm:flex p-4 rounded-[16px] bg-white hover:cursor-pointer relative"
-                  }
+            {/* Desktop notifications menu */}
+            <div className="hidden sm:block">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button
+                    aria-label="notifications"
+                    className={
+                      "hidden sm:flex p-4 rounded-[16px] bg-white hover:cursor-pointer relative"
+                    }
+                  >
+                    <Bell size={24} />
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  side="bottom"
+                  align="end"
+                  sideOffset={8}
+                  avoidCollisions={false}
+                  className="w-[432px] h-auto shadow-xl p-0 border"
                 >
-                  <Bell size={24} />
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuTrigger asChild>
-                <button
-                  aria-label="notifications"
-                  className="hover:cursor-pointer relative flex sm:hidden"
-                >
-                  <Bell size={24} />
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                side="bottom"
-                align="end"
-                sideOffset={8}
-                className="w-[432px] h-auto shadow-xl p-0 border"
-              >
-                <DropdownMenuLabel
-                  className={"text-[18px] font-bold py-[18px] px-5 border-b"}
-                >
-                  Уведомление
-                </DropdownMenuLabel>
+                  <DropdownMenuLabel
+                    className={"text-[18px] font-bold py-[18px] px-5 border-b"}
+                  >
+                    Уведомление
+                  </DropdownMenuLabel>
 
-                <AnimatePresence>
-                  {showNotifs && (
-                    <>
-                      <motion.div
-                        initial={{ x: -50, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        exit={{ x: 100, opacity: 0 }}
-                        transition={{ duration: 0.3, delay: 0 }}
-                      >
-                        <DropdownMenuGroup className={"p-4 hover:bg-[#F6FFF4]"}>
-                          <CardContent className={"flex flex-col gap-2 p-0"}>
-                            <DropdownMenuItem
-                              className={
-                                "text-[12px] text-[#313131] hover:bg-transparent focus:bg-transparent"
-                              }
-                            >
-                              <Clock />1 min ago
-                            </DropdownMenuItem>
-                            <DropdownMenuItem
-                              className="text-[18px] font-bold text-[#567D4A] 
+                  <AnimatePresence>
+                    {showNotifs && (
+                      <>
+                        <motion.div
+                          initial={{ x: -50, opacity: 0 }}
+                          animate={{ x: 0, opacity: 1 }}
+                          exit={{ x: 100, opacity: 0 }}
+                          transition={{ duration: 0.3, delay: 0 }}
+                        >
+                          <DropdownMenuGroup
+                            className={"p-4 hover:bg-[#F6FFF4]"}
+                          >
+                            <CardContent className={"flex flex-col gap-2 p-0"}>
+                              <DropdownMenuItem
+                                className={
+                                  "text-[12px] text-[#313131] hover:bg-transparent focus:bg-transparent"
+                                }
+                              >
+                                <Clock />1 min ago
+                              </DropdownMenuItem>
+                              <DropdownMenuItem
+                                className="text-[18px] font-bold text-[#567D4A] 
                 hover:bg-transparent focus:bg-transparent 
                 data-[highlighted]:bg-transparent data-[highlighted]:text-[#567D4A]"
-                            >
-                              New Order #30854
-                            </DropdownMenuItem>
-                            <DropdownMenuItem
-                              className={
-                                "text-[14px] font-light text-[#616161] hover:bg-transparent focus:bg-transparent data-[highlighted]:bg-transparent data-[highlighted]:text-[#616161]"
-                              }
-                            >
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit.
-                            </DropdownMenuItem>
-                            <DropdownMenuItem
-                              className={
-                                "text-[14px] font-light text-[#616161] hover:bg-transparent focus:bg-transparent"
-                              }
-                            >
-                              <Button
-                                variant={"outline"}
-                                className="rounded-full text-black active:bg-[#567D4A] active:text-white"
                               >
-                                Decline
-                              </Button>
-                              <Button
-                                variant={"outline"}
-                                className="rounded-full text-black active:bg-[#567D4A] active:text-white"
+                                New Order #30854
+                              </DropdownMenuItem>
+                              <DropdownMenuItem
+                                className={
+                                  "text-[14px] font-light text-[#616161] hover:bg-transparent focus:bg-transparent data-[highlighted]:bg-transparent data-[highlighted]:text-[#616161]"
+                                }
                               >
-                                Snooze
-                              </Button>
-                            </DropdownMenuItem>
-                          </CardContent>
-                        </DropdownMenuGroup>
-                      </motion.div>
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit.
+                              </DropdownMenuItem>
+                              <DropdownMenuItem
+                                className={
+                                  "text-[14px] font-light text-[#616161] hover:bg-transparent focus:bg-transparent"
+                                }
+                              >
+                                <Button
+                                  variant={"outline"}
+                                  className="rounded-full text-black active:bg-[#567D4A] active:text-white"
+                                >
+                                  Decline
+                                </Button>
+                                <Button
+                                  variant={"outline"}
+                                  className="rounded-full text-black active:bg-[#567D4A] active:text-white"
+                                >
+                                  Snooze
+                                </Button>
+                              </DropdownMenuItem>
+                            </CardContent>
+                          </DropdownMenuGroup>
+                        </motion.div>
 
-                      <motion.div
-                        initial={{ x: -50, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        exit={{ x: 100, opacity: 0 }}
-                        transition={{ duration: 0.3, delay: 0.2 }}
-                      >
-                        <DropdownMenuGroup className={"p-4 hover:bg-[#F6FFF4]"}>
-                          <CardContent className={"flex flex-col gap-2 p-0"}>
-                            <DropdownMenuItem
-                              className={
-                                "text-[12px] text-[#313131] hover:bg-transparent focus:bg-transparent"
-                              }
-                            >
-                              <Clock />5 min ago
-                            </DropdownMenuItem>
-                            <DropdownMenuItem
-                              className="text-[18px] font-bold text-[#567D4A] 
+                        <motion.div
+                          initial={{ x: -50, opacity: 0 }}
+                          animate={{ x: 0, opacity: 1 }}
+                          exit={{ x: 100, opacity: 0 }}
+                          transition={{ duration: 0.3, delay: 0.2 }}
+                        >
+                          <DropdownMenuGroup
+                            className={"p-4 hover:bg-[#F6FFF4]"}
+                          >
+                            <CardContent className={"flex flex-col gap-2 p-0"}>
+                              <DropdownMenuItem
+                                className={
+                                  "text-[12px] text-[#313131] hover:bg-transparent focus:bg-transparent"
+                                }
+                              >
+                                <Clock />5 min ago
+                              </DropdownMenuItem>
+                              <DropdownMenuItem
+                                className="text-[18px] font-bold text-[#567D4A] 
                 hover:bg-transparent focus:bg-transparent 
                 data-[highlighted]:bg-transparent data-[highlighted]:text-[#567D4A]"
-                            >
-                              Payment Successful
-                            </DropdownMenuItem>
-                            <DropdownMenuItem
-                              className={
-                                "text-[14px] font-light text-[#616161] hover:bg-transparent focus:bg-transparent data-[highlighted]:bg-transparent data-[highlighted]:text-[#616161]"
-                              }
-                            >
-                              Your order has been processed successfully.
-                            </DropdownMenuItem>
-                            <DropdownMenuItem
-                              className={
-                                "text-[14px] font-light text-[#616161] hover:bg-transparent focus:bg-transparent"
-                              }
-                            >
-                              <Button
-                                variant={"outline"}
-                                className="rounded-full text-black active:bg-[#567D4A] active:text-white"
                               >
-                                View
-                              </Button>
-                            </DropdownMenuItem>
-                          </CardContent>
-                        </DropdownMenuGroup>
-                      </motion.div>
-                    </>
+                                Payment Successful
+                              </DropdownMenuItem>
+                              <DropdownMenuItem
+                                className={
+                                  "text-[14px] font-light text-[#616161] hover:bg-transparent focus:bg-transparent data-[highlighted]:bg-transparent data-[highlighted]:text-[#616161]"
+                                }
+                              >
+                                Your order has been processed successfully.
+                              </DropdownMenuItem>
+                              <DropdownMenuItem
+                                className={
+                                  "text-[14px] font-light text-[#616161] hover:bg-transparent focus:bg-transparent"
+                                }
+                              >
+                                <Button
+                                  variant={"outline"}
+                                  className="rounded-full text-black active:bg-[#567D4A] active:text-white"
+                                >
+                                  View
+                                </Button>
+                              </DropdownMenuItem>
+                            </CardContent>
+                          </DropdownMenuGroup>
+                        </motion.div>
+                      </>
+                    )}
+                  </AnimatePresence>
+
+                  {!showNotifs && (
+                    <div className="p-6 text-center text-[#616161]">
+                      <button
+                        className={
+                          "p-4 rounded-[16px] bg-[#F6F6F6] hover:cursor-pointer relative"
+                        }
+                      >
+                        <Bell size={24} />
+                      </button>
+                      <p className="text-xl font-bold text-[#0B0C0B]">
+                        Ничего нового
+                      </p>
+                      <p className="text-[14px] font-normal mt-1">
+                        Мы сообщим, когда появится что-то новое.
+                      </p>
+                    </div>
                   )}
-                </AnimatePresence>
 
-                <DropdownMenuLabel
-                  onClick={() => setShowNotifs(false)}
-                  className={
-                    "flex items-center font-semibold text-[12px] text-[#567D4A] cursor-pointer px-4 py-4 border-t"
-                  }
-                >
-                  <Check /> Всё прочитано
-                </DropdownMenuLabel>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                  <DropdownMenuLabel
+                    onClick={() => setShowNotifs(false)}
+                    className={
+                      "flex items-center font-semibold text-[12px] text-[#567D4A] cursor-pointer px-4 py-4 border-t"
+                    }
+                  >
+                    <Check /> Всё прочитано
+                  </DropdownMenuLabel>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+
+            {/* Mobile: navigate to notifications page */}
+            <button
+              aria-label="notifications"
+              onClick={() => router.push("/notifications")}
+              className="hover:cursor-pointer relative flex sm:hidden"
+            >
+              <Bell size={24} />
+            </button>
           </div>
         </div>
       </div>
@@ -259,4 +291,3 @@ export default function Navbar() {
     </header>
   );
 }
-// hello Muhammaddiyor 
