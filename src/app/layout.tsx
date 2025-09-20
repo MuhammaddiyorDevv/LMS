@@ -23,16 +23,16 @@ export default function RootLayout({
           <Sidebar />
         </div>
 
+        {/* Desktop Navbar - Fixed */}
+        <div className="hidden sm:block fixed top-0 left-64 right-0 z-50 px-[24px] ">
+          <NavbarDesktop />
+        </div>
+
         {/* Asosiy qism */}
-        <div className="flex flex-col flex-1 px-[24px] sm:ml-64 ml-0 pt-[56px] sm:pt-0">
+        <div className="flex flex-col flex-1 px-[24px] sm:ml-64 ml-0 pt-[56px] sm:pt-[56px]">
           {/* Mobile Sidebar */}
           <div className="sm:hidden">
             <SidebarMobile />
-          </div>
-
-          {/* Desktop Navbar */}
-          <div className="hidden sm:block">
-            <NavbarDesktop />
           </div>
 
           {/* Mobile Navbar */}
@@ -41,7 +41,7 @@ export default function RootLayout({
           </div>
 
           {/* Page content */}
-          <main className="flex-1 mt-[20px] pb-20 sm:pb-0">{children}</main>
+          <main className="flex-1 mt-[46px] pb-20 sm:pb-0">{children}</main>
         </div>
       </body>
     </html>

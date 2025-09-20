@@ -24,7 +24,7 @@ export default function NavbarDesktop() {
   const isCourseDetailPage = pathname.startsWith("/course/");
 
   return (
-    <header className="bg-[#F6F6F6] border-b border-b-[#E5E5E5] sticky top-0 z-50">
+    <header className="bg-[#F6F6F6] border-b border-b-[#E5E5E5]">
       <div className="flex mb-6 items-center justify-between h-[56px] gap-3 px-[24px] sm:px-0 pt-3">
         <div className="hidden sm:flex mt-3 items-center justify-start">
           <div className="relative w-[420px]">
@@ -62,12 +62,12 @@ export default function NavbarDesktop() {
           </div>
         </div>
 
-        <div className="flex items-center gap-4 sm:gap-3 ml-auto">
+        <div className="flex items-center mt-3 gap-4 sm:gap-3 ml-auto">
           <button
             aria-label="favorites"
             className="hidden sm:flex p-4 rounded-[16px] bg-white hover:cursor-pointer"
           >
-            <Heart size={20} />
+            <Heart size={24} />
           </button>
           {/* Desktop notifications menu */}
           <div className="hidden sm:block">
