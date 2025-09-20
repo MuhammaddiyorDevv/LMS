@@ -10,8 +10,8 @@ import MentorNotFound from "../../../components/mentors/detail/MentorNotFound";
 const MentorDetailPage = () => {
   const params = useParams();
   const mentorId = parseInt(params.id as string);
-  
-  const mentor = mentorsData.find(m => m.id === mentorId);
+
+  const mentor = mentorsData.find((m) => m.id === mentorId);
 
   if (!mentor) {
     return <MentorNotFound />;

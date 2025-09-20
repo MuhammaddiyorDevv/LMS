@@ -58,9 +58,7 @@ const MentorCard: React.FC<MentorCardProps> = ({ mentor }) => {
             >
               Узнать больше
             </Link>
-            <button
-              className="flex gap-2 py-2 px-4 rounded-[99px] border-[1px] border-[#E5E5E5] hover:bg-gray-50 transition-colors text-sm"
-            >
+            <button className="flex gap-2 py-2 px-4 rounded-[99px] border-[1px] border-[#E5E5E5] hover:bg-gray-50 transition-colors text-sm">
               {HeartIcon && <HeartIcon className="mt-0.5" />}
               Смотреть позже
             </button>

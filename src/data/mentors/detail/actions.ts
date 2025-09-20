@@ -12,7 +12,7 @@ export const mentorProfileActions: ActionButton[] = [
     onClick: () => {
       // Handle consultation booking
       console.log("Booking consultation...");
-    }
+    },
   },
   {
     id: "favorite",
@@ -22,8 +22,8 @@ export const mentorProfileActions: ActionButton[] = [
     onClick: () => {
       // Handle adding to favorites
       console.log("Adding to favorites...");
-    }
-  }
+    },
+  },
 ];
 
 // Action buttons for mentor contact section
@@ -36,7 +36,7 @@ export const mentorContactActions: ActionButton[] = [
     onClick: () => {
       // Handle messaging
       console.log("Opening message dialog...");
-    }
+    },
   },
   {
     id: "call",
@@ -46,8 +46,8 @@ export const mentorContactActions: ActionButton[] = [
     onClick: () => {
       // Handle call booking
       console.log("Booking call...");
-    }
-  }
+    },
+  },
 ];
 
 // Function to get profile actions
