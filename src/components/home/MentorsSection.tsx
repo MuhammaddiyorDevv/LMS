@@ -14,27 +14,27 @@ const MentorsSection = () => {
   const mentorsIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const nextMentorSlide = () => {
-    setCurrentMentorSlide((prev) => (prev + 1) % totalMentorSlides);
+    setCurrentMentorSlide((prev) => {
+      const next = prev + 1;
+      return next >= totalMentorSlides ? 0 : next;
+    });
   };
 
   const prevMentorSlide = () => {
-    setCurrentMentorSlide(
-      (prev) => (prev - 1 + totalMentorSlides) % totalMentorSlides,
-    );
-  };
-
-  const getCurrentMentors = () => {
-    return mentors.slice(
-      currentMentorSlide,
-      currentMentorSlide + mentorsPerSlide,
-    );
+    setCurrentMentorSlide((prev) => {
+      const prevSlide = prev - 1;
+      return prevSlide < 0 ? totalMentorSlides - 1 : prevSlide;
+    });
   };
 
   // Auto carousel effect for mentors
   useEffect(() => {
     if (!isMentorsPaused) {
       mentorsIntervalRef.current = setInterval(() => {
-        nextMentorSlide();
+        setCurrentMentorSlide((prev) => {
+          const next = prev + 1;
+          return next >= totalMentorSlides ? 0 : next;
+        });
       }, 5000); // Change slide every 5 seconds
     }
 
@@ -77,53 +77,76 @@ const MentorsSection = () => {
         </div>
       </div>
 
-      {/* Mentors Cards Grid */}
+      {/* Mentors Cards Slider */}
       <div
-        className="flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-visible"
+        className="relative overflow-hidden"
         onMouseEnter={() => setIsMentorsPaused(true)}
         onMouseLeave={() => setIsMentorsPaused(false)}
       >
-        {getCurrentMentors().map((mentor, index) => (
-          <div
-            key={mentor.id}
-            className="bg-white p-3 w-full sm:py-4 sm:pl-4 sm:pr-[34px] rounded-2xl border border-[#E5E5E5] flex flex-col items-start sm:flex-row sm:items-center gap-4 hover:shadow-lg transition-all duration-500 ease-in-out transform hover:scale-105"
-            style={{
-              animation: `slideInFromLeft 0.6s ease-out ${index * 0.1}s both`,
-            }}
-          >
-            {/* Profile Picture */}
-            <div className="w-[42px] h-[42px] sm:w-16 sm:h-16 flex-shrink-0">
-              <Image
-                src={mentor.avatar}
-                alt="Mentor profile"
-                width={64}
-                height={64}
-                className="w-full h-full object-cover rounded-full"
-              />
-            </div>
-
-            {/* Mentor Info */}
-            <div className="flex-1">
-              <h3 className="text-black mb-1 font-semibold text-[16px]">
-                {mentor.name}
-              </h3>
-              <p className="text-gray-500 text-[12px]">{mentor.title}</p>
-            </div>
-
-            {/* Play Button */}
-            <button
-              aria-label="Play"
-              className="hidden sm:flex p-3 rounded-full transition-colors"
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{
+            transform: `translateX(-${
+              currentMentorSlide * (100 / mentorsPerSlide)
+            }%)`,
+          }}
+        >
+          {Array.from({ length: totalMentorSlides }).map((_, slideIndex) => (
+            <div
+              key={slideIndex}
+              className="w-full flex-shrink-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+              style={{ gap: "16px" }}
             >
-              <FaPlay className="text-[#567D4A] text-[18px]" />
-            </button>
+              {mentors
+                .slice(slideIndex, slideIndex + mentorsPerSlide)
+                .map((mentor, index) => (
+                  <div
+                    key={`${mentor.id}-${slideIndex}`}
+                    className="bg-white p-3 w-full sm:py-4 sm:pl-4 sm:pr-[34px] rounded-2xl border border-[#E5E5E5] flex flex-col items-start sm:flex-row sm:items-center gap-4  transition-all duration-500 ease-in-out transform cursor-pointer"
+                    style={{
+                      animation: `slideInFromLeft 0.6s ease-out ${
+                        index * 0.1
+                      }s both`,
+                    }}
+                  >
+                    {/* Profile Picture */}
+                    <div className="w-[42px] h-[42px] sm:w-16 sm:h-16 flex-shrink-0">
+                      <Image
+                        src={mentor.avatar}
+                        alt="Mentor profile"
+                        width={64}
+                        height={64}
+                        className="w-full h-full object-cover rounded-full"
+                      />
+                    </div>
 
-            {/* Mobile Button */}
-            <button className="rounded-[99px] bg-[#567D4A] text-white py-[11px] px-[52px] text-[12px] flex sm:hidden">
-              Continue
-            </button>
-          </div>
-        ))}
+                    {/* Mentor Info */}
+                    <div className="flex-1">
+                      <h3 className="text-black mb-1 font-semibold text-[16px]">
+                        {mentor.name}
+                      </h3>
+                      <p className="text-gray-500 text-[12px]">
+                        {mentor.title}
+                      </p>
+                    </div>
+
+                    {/* Play Button */}
+                    <button
+                      aria-label="Play"
+                      className="hidden sm:flex p-3 rounded-full transition-colors"
+                    >
+                      <FaPlay className="text-[#567D4A] text-[18px]" />
+                    </button>
+
+                    {/* Mobile Button */}
+                    <button className="rounded-[99px] bg-[#567D4A] text-white py-[11px] px-[52px] text-[12px] flex sm:hidden">
+                      Continue
+                    </button>
+                  </div>
+                ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

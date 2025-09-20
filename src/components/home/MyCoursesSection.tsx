@@ -6,12 +6,13 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { courses } from "../../data/home";
 
 const MyCoursesSection = () => {
-  // Courses carousel state
+  // Courses slider state
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isCoursesPaused, setIsCoursesPaused] = useState(false);
   const coursesPerSlide = 3;
   const totalSlides = courses.length - coursesPerSlide + 1;
   const coursesIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
@@ -25,7 +26,7 @@ const MyCoursesSection = () => {
     return courses.slice(currentSlide, currentSlide + coursesPerSlide);
   };
 
-  // Auto carousel effect for courses
+  // Auto slider effect for courses
   useEffect(() => {
     if (!isCoursesPaused) {
       coursesIntervalRef.current = setInterval(() => {
@@ -70,77 +71,92 @@ const MyCoursesSection = () => {
         </div>
       </div>
 
-      {/* Course Cards Grid */}
+      {/* Course Cards Slider */}
       <div
-        className="grid grid-cols-1 lg:grid-cols-3 gap-6 carousel-container"
+        className="slider-container relative overflow-hidden w-full"
         onMouseEnter={() => setIsCoursesPaused(true)}
         onMouseLeave={() => setIsCoursesPaused(false)}
       >
-        {getCurrentCourses().map((course, index) => (
-          <div
-            key={course.id}
-            className="w-[220px] sm:w-full bg-white rounded-2xl items-start flex flex-col sm:flex-row hover:shadow-xl gap-3 sm:gap-3.5 transition-all duration-500 ease-in-out overflow-hidden p-3 sm:p-4 border border-[#E5E5E5] transform hover:scale-105 carousel-item"
-            style={{
-              animation: `slideInFromRight 0.6s ease-out ${index * 0.1}s both`,
-            }}
-          >
-            {/* Course Image */}
-            <div className="w-[204px] h-40 sm:w-[84px] sm:h-[84px] flex-shrink-0">
-              <Image
-                src={course.image}
-                alt="Course thumbnail"
-                width={84}
-                height={84}
-                className="w-full h-full object-cover rounded-lg"
-              />
-            </div>
-
-            {/* Course Content */}
-            <div className="flex-1 h-[84px] sm:h-auto flex flex-col justify-between">
-              <div>
-                <h2 className="text-sm font-semibold text-gray-900 mb-1">
-                  {course.title}
-                </h2>
-                <p className="text-gray-600 mb-1 line-clamp-2 sm:line-clamp-1 text-xs">
-                  {course.description}
-                </p>
+        <div
+          ref={sliderRef}
+          className="slider-track flex gap-4 transition-transform duration-500 ease-in-out"
+          style={{
+            transform: `translateX(-${
+              currentSlide * (100 / coursesPerSlide)
+            }%)`,
+            width: `${(courses.length / coursesPerSlide) * 100}%`,
+          }}
+        >
+          {courses.map((course, index) => (
+            <div
+              key={course.id}
+              className="bg-white rounded-2xl items-start flex flex-col sm:flex-row gap-3 sm:gap-3.5 transition-all duration-500 ease-in-out overflow-hidden p-3 sm:p-4 border border-[#E5E5E5] transform cursor-pointer carousel-item flex-shrink-0"
+              style={{
+                width: `${97 / courses.length}%`,
+                minWidth: `${97 / coursesPerSlide}%`,
+                animation: `slideInFromRight 0.6s ease-out ${
+                  index * 0.1
+                }s both`,
+              }}
+            >
+              {/* Course Image */}
+              <div className="h-40 sm:w-[84px] sm:h-[84px] flex-shrink-0">
+                <Image
+                  src={course.image}
+                  alt="Course thumbnail"
+                  width={84}
+                  height={84}
+                  className="w-full h-full object-cover rounded-lg"
+                />
               </div>
 
-              <div>
-                {/* Instructor */}
-                <div className="flex items-center mt-3 mb-3.5">
-                  <Image
-                    src={course.instructor.avatar}
-                    alt="Instructor"
-                    width={20}
-                    height={20}
-                    className="w-4 h-4 rounded-full object-cover mr-1"
-                  />
-                  <div>
-                    <p className="sm:font-normal font-medium text-[#616161] text-[12px] sm:text-[10px]">
-                      {course.instructor.name}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Progress Bar */}
+              {/* Course Content */}
+              <div className="flex-1 h-[84px] sm:h-auto flex flex-col justify-between">
                 <div>
-                  <div className="flex justify-end items-center ">
-                    <span className="text-xs font-semibold text-[#567D4A]">
-                      {course.progress}%
-                    </span>
+                  <h2 className="text-sm font-semibold text-gray-900 mb-1">
+                    {course.title}
+                  </h2>
+                  <p className="text-gray-600 mb-1 line-clamp-2 sm:line-clamp-1 text-xs">
+                    {course.description}
+                  </p>
+                </div>
+
+                <div>
+                  {/* Instructor */}
+                  <div className="flex items-center mt-3 mb-3.5">
+                    <Image
+                      src={course.instructor.avatar}
+                      alt="Instructor"
+                      width={20}
+                      height={20}
+                      className="w-4 h-4 rounded-full object-cover mr-1"
+                    />
+                    <div>
+                      <p className="sm:font-normal font-medium text-[#616161] text-[12px] sm:text-[10px]">
+                        {course.instructor.name}
+                      </p>
+                    </div>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-1">
-                    <div
-                      className="bg-[#567D4A] h-1 rounded-full transition-all duration-300"
-                      style={{ width: `${course.progress}%` }}
-                    ></div>
+
+                  {/* Progress Bar */}
+                  <div>
+                    <div className="flex justify-end items-center ">
+                      <span className="text-xs font-semibold text-[#567D4A]">
+                        {course.progress}%
+                      </span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-1">
+                      <div
+                        className="bg-[#567D4A] h-1 rounded-full transition-all duration-300"
+                        style={{ width: `${course.progress}%` }}
+                      ></div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
