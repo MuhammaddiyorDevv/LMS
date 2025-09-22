@@ -33,7 +33,6 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
       href={`/course/${course.id}`}
       className="bg-white rounded-2xl border border-[#E5E5E5] hover:shadow-xl transition-shadow duration-300 overflow-hidden cursor-pointer"
     >
-      {/* Course Image */}
       <div className="relative h-48 w-full">
         <Image
           src={course.image}
@@ -42,7 +41,6 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
           className="object-cover"
         />
         
-        {/* Level Overlay */}
         <div className="absolute bg-white top-[14px] left-[14px] flex items-center gap-[6px] p-[6px] rounded-[4px]">
           <div className="text-black py-1 rounded-full text-xs font-medium">
             {course.level === "Beginning"
@@ -57,9 +55,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
         </div>
       </div>
 
-      {/* Course Content */}
       <div className="p-6">
-        {/* Course Title and Rating */}
         <div className="flex justify-between items-center mb-3">
           <div className="flex items-center gap-[6px]">
             <h3 className="text-lg font-bold text-black line-clamp-2">
@@ -75,12 +71,9 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
           <p className="text-2xl font-bold text-[#006ADC]">{course.price}</p>
         </div>
 
-        {/* Course Description */}
         <p className="text-gray-600 text-sm mb-4 line-clamp-3">
           {course.description}
         </p>
-
-        {/* Instructor */}
         <div className="flex items-center gap-3 mb-4">
           <Image
             src={course.instructor.avatar}
@@ -96,7 +89,6 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
           </div>
         </div>
 
-        {/* Course Stats */}
         <div className="flex justify-between items-center mt-3">
           <div className="flex items-center gap-2">
             <SlGraduation className="text-[#616161] text-sm" />

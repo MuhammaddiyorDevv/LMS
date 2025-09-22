@@ -15,7 +15,6 @@ import {
 } from "chart.js";
 import { Doughnut, Line } from "react-chartjs-2";
 
-// Register Chart.js components
 ChartJS.register(
   ArcElement,
   Tooltip,
@@ -28,7 +27,6 @@ ChartJS.register(
   Filler,
 );
 
-// Course Progress Chart Data
 const courseProgressData = {
   datasets: [
     {
@@ -55,7 +53,6 @@ const courseProgressConfig = {
   },
 };
 
-// Activity Chart Data
 const activityData = {
   labels: ["S", "M", "T", "W", "T", "F"],
   datasets: [

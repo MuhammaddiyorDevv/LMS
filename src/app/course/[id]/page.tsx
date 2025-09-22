@@ -17,7 +17,6 @@ import { FiHeadphones } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaStar } from "react-icons/fa";
 
-// Course data interface (same as in allCourses)
 interface NewCourse {
   id: number;
   title: string;
@@ -34,7 +33,6 @@ interface NewCourse {
   image: string;
 }
 
-// Sample course data (in a real app, this would come from an API)
 const courses: NewCourse[] = [
   {
     id: 1,
@@ -134,7 +132,6 @@ const courses: NewCourse[] = [
   },
 ];
 
-// Review data interface
 interface Review {
   id: number;
   name: string;
@@ -145,7 +142,6 @@ interface Review {
   comment: string;
 }
 
-// Sample review data
 const reviews: Review[] = [
   {
     id: 1,

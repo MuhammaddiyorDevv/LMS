@@ -3,7 +3,6 @@ import Beginning from "../../components/uroven/Beginning";
 import Intermediate from "../../components/uroven/Intermediate";
 import Master from "../../components/uroven/Master";
 
-// Mentor data
 export const mentors: Mentor[] = [
   {
     id: 1,
@@ -43,7 +42,6 @@ export const mentors: Mentor[] = [
   },
 ];
 
-// Course data - 6 courses
 export const courses: Course[] = [
   {
     id: 1,
@@ -125,7 +123,6 @@ export const courses: Course[] = [
   },
 ];
 
-// New Course data
 export const newCourses: NewCourse[] = [
   {
     id: 1,

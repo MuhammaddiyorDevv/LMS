@@ -17,15 +17,12 @@ const MentorDetails: React.FC<MentorDetailsProps> = ({ mentor }) => {
       case "about":
         return (
           <div className="space-y-8">
-            {/* About Section */}
             <div>
               <h2 className="text-xl font-semibold mb-4">О менторе</h2>
               <p className="text-gray-700 leading-relaxed">
                 {mentor.description}
               </p>
             </div>
-
-            {/* Specializations */}
             <div>
               <h2 className="text-xl font-semibold mb-4">Специализации</h2>
               <div className="flex flex-wrap gap-2">
@@ -39,8 +36,6 @@ const MentorDetails: React.FC<MentorDetailsProps> = ({ mentor }) => {
                 ))}
               </div>
             </div>
-
-            {/* Languages */}
             <div>
               <h2 className="text-xl font-semibold mb-4">Языки</h2>
               <div className="flex flex-wrap gap-2">
@@ -62,7 +57,6 @@ const MentorDetails: React.FC<MentorDetailsProps> = ({ mentor }) => {
           <div>
             <h2 className="text-xl font-semibold mb-4">Курсы ментора</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Sample courses */}
               <div className="border border-gray-200 rounded-lg p-4">
                 <h3 className="font-semibold text-gray-900 mb-2">
                   Основы UX/UI дизайна

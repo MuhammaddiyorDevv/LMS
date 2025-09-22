@@ -14,13 +14,11 @@ const MentorsPage = () => {
     setPriceRange({ min, max });
   };
 
-  // Function to extract numeric value from price string
   const extractPrice = (priceString: string): number => {
     const numericValue = priceString.replace(/[^\d]/g, "");
     return parseInt(numericValue) || 0;
   };
 
-  // Filter mentors based on search term and price range
   const filteredMentors = mentorsData.filter((mentor) => {
     const mentorPrice = extractPrice(mentor.hourlyRate);
     const matchesSearch =

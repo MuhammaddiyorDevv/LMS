@@ -49,7 +49,6 @@ const NewCoursesSection = () => {
         </div>
       </div>
 
-      {/* New Course Cards Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {newCourses.map((course, index) => (
           <div
@@ -59,7 +58,6 @@ const NewCoursesSection = () => {
               animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`,
             }}
           >
-            {/* Course Image */}
             <div className="relative h-48 w-full">
               <Image
                 src={course.image}
@@ -67,8 +65,6 @@ const NewCoursesSection = () => {
                 fill
                 className="object-cover"
               />
-
-              {/* Level Overlay */}
               <div className="absolute bg-white top-[14px] left-[14px] flex items-center gap-[6px] p-[6px] rounded-[4px]">
                 <div
                   className={`text-black  py-1 rounded-full text-xs font-medium`}
@@ -84,10 +80,7 @@ const NewCoursesSection = () => {
                 </div>
               </div>
             </div>
-
-            {/* Course Content */}
             <div className="p-6">
-              {/* Course Title and Rating */}
               <div className="flex justify-between items-center mb-3">
                 <div className="flex items-center gap-[6px]">
                   <h3 className="text-lg font-bold text-black line-clamp-2">
@@ -104,13 +97,9 @@ const NewCoursesSection = () => {
                   {course.price}
                 </p>
               </div>
-
-              {/* Course Description */}
               <p className="text-gray-600 text-sm mb-4 line-clamp-3">
                 {course.description}
               </p>
-
-              {/* Instructor */}
               <div className="flex items-center gap-3 mb-4">
                 <Image
                   src={course.instructor.avatar}
@@ -125,13 +114,9 @@ const NewCoursesSection = () => {
                   </p>
                 </div>
               </div>
-
-              {/* Price and Enroll Button */}
               <div className="flex justify-between items-center">
                 <div></div>
               </div>
-
-              {/* Course Stats */}
               <div className="flex justify-between items-center mt-3">
                 <div className="flex items-center gap-2">
                   <SlGraduation className="text-[#616161] text-sm" />

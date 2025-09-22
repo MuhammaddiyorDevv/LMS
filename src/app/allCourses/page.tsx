@@ -16,13 +16,11 @@ const AllCoursesPage = () => {
     });
   }, []);
 
-  // Function to extract numeric value from price string
   const extractPrice = (priceString: string): number => {
     const numericValue = priceString.replace(/[^\d]/g, "");
     return parseInt(numericValue) || 0;
   };
 
-  // Filter courses based on search term and price range
   const filteredCourses = allCoursesData.filter((course) => {
     const coursePrice = extractPrice(course.price);
     const matchesSearch =

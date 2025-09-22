@@ -21,7 +21,6 @@ const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
   const [maxPrice, setMaxPrice] = useState(max);
 
   useEffect(() => {
-    // Only call when numeric values change; ignore callback identity changes
     onPriceChange?.(minPrice, maxPrice);
   }, [minPrice, maxPrice]);
 
@@ -56,7 +55,6 @@ const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
   return (
     <div className="w-full p-4 bg-gradient-to-br to-white rounded-2xl">
       <div className="space-y-4">
-        {/* Price Input Fields */}
         <div className="flex items-center justify-center gap-[12px]">
           <div className="relative group">
             <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-sm font-medium text-gray-500 z-10">
@@ -90,11 +88,8 @@ const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
           </div>
         </div>
 
-        {/* Slider Container */}
         <div className="relative px-4 py-6">
-          {/* Background Slider */}
           <div className="h-3 bg-gradient-to-r from-gray-200 to-gray-300 rounded-full relative overflow-hidden">
-            {/* Active Range */}
             <div
               className="absolute h-3 rounded-full"
               style={{
@@ -104,8 +99,6 @@ const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
               }}
             />
           </div>
-
-          {/* Range Inputs */}
           <div className="relative -mt-4">
             <input
               type="range"

@@ -21,10 +21,8 @@ export default function Navbar() {
   const router = useRouter();
   const [showNotifs, setShowNotifs] = useState(true);
 
-  // Check if we're on a course detail page
   const isCourseDetailPage = pathname.startsWith("/course/");
 
-  // Hide navbar on notifications page (mobile notifications full page)
   if (pathname.startsWith("/notifications")) {
     return null;
   }
@@ -71,7 +69,6 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Right: Icons group */}
           <div className="flex items-center gap-4 sm:gap-3 ml-auto">
             <Heart className="flex sm:hidden" />
             <button
@@ -80,7 +77,6 @@ export default function Navbar() {
             >
               <Heart size={20} />
             </button>
-            {/* Desktop notifications menu */}
             <div className="hidden sm:block">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -243,7 +239,6 @@ export default function Navbar() {
               </DropdownMenu>
             </div>
 
-            {/* Mobile: navigate to notifications page */}
             <button
               aria-label="notifications"
               onClick={() => router.push("/notifications")}

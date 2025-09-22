@@ -69,7 +69,6 @@ export default function NavbarDesktop() {
           >
             <Heart size={24} />
           </button>
-          {/* Desktop notifications menu */}
           <div className="hidden sm:block">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>

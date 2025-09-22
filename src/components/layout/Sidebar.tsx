@@ -10,13 +10,11 @@ export default function Sidebar() {
 
   return (
     <aside className="w-64 bg-white shadow-md flex flex-col px-3 fixed h-screen">
-      {/* Logo */}
       <div className="flex items-center py-[20px]">
         <img src="/Images/Logo.svg" alt="Logo" />
       </div>
       <hr className="text-[#E5E5E5]" />
 
-      {/* Menu */}
       <nav className="flex-1 py-[20px] max-[1920px]:overflow-y-auto">
         <div>
           <ul className="space-y-2 pb-[20px]">
@@ -71,7 +69,6 @@ export default function Sidebar() {
         </div>
       </nav>
 
-      {/* Bottom */}
       <div className="rounded-lg flex flex-col gap-[20px]">
         <div className="bg-[#F6F6F6] flex flex-col items-center text-center py-[16px] px-[14px] rounded-t-lg">
           <img className="w-[64px] h-[56px]" src="/Images/Diamond.svg" alt="" />
