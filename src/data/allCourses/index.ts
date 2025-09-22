@@ -1,4 +1,7 @@
 import { AllCoursesPageCourse } from "../../types/allCourses";
+import Beginning from "../../components/uroven/Beginning";
+import Intermediate from "../../components/uroven/Intermediate";
+import Master from "../../components/uroven/Master";
 
 export const allCoursesData: AllCoursesPageCourse[] = [
   {
@@ -15,7 +18,13 @@ export const allCoursesData: AllCoursesPageCourse[] = [
     lessons: 23,
     participants: 2949,
     duration: "5h 32m",
-    image: "/Images/NewCourseThree.svg",
+    image: "/Images/Nature-three.jpeg",
+    uroven: {
+      Beginning,
+      Intermediate,
+      Master,
+    },
+    level: "Beginning",
   },
   {
     id: 2,
@@ -31,7 +40,13 @@ export const allCoursesData: AllCoursesPageCourse[] = [
     lessons: 35,
     participants: 1847,
     duration: "8h 15m",
-    image: "/Images/NewCourseTwo.svg",
+    image: "/Images/Nature-two.jpeg",
+    uroven: {
+      Beginning,
+      Intermediate,
+      Master,
+    },
+    level: "Intermediate",
   },
   {
     id: 3,
@@ -47,7 +62,13 @@ export const allCoursesData: AllCoursesPageCourse[] = [
     lessons: 28,
     participants: 3256,
     duration: "6h 45m",
-    image: "/Images/NewCourseTwo.svg",
+    image: "/Images/Nature-two.jpeg",
+    uroven: {
+      Beginning,
+      Intermediate,
+      Master,
+    },
+    level: "Master",
   },
   {
     id: 4,
@@ -63,7 +84,13 @@ export const allCoursesData: AllCoursesPageCourse[] = [
     lessons: 42,
     participants: 1523,
     duration: "10h 20m",
-    image: "/Images/NewCourseThree.svg",
+    image: "/Images/Nature-one.jpg",
+    uroven: {
+      Beginning,
+      Intermediate,
+      Master,
+    },
+    level: "Beginning",
   },
   {
     id: 5,
@@ -79,7 +106,13 @@ export const allCoursesData: AllCoursesPageCourse[] = [
     lessons: 31,
     participants: 2187,
     duration: "7h 30m",
-    image: "/Images/NewCourseThree.svg",
+    image: "/Images/Nature-three.jpeg",
+    uroven: {
+      Beginning,
+      Intermediate,
+      Master,
+    },
+    level: "Intermediate",
   },
   {
     id: 6,
@@ -95,6 +128,12 @@ export const allCoursesData: AllCoursesPageCourse[] = [
     lessons: 48,
     participants: 987,
     duration: "12h 15m",
-    image: "/Images/NewCourseTwo.svg",
+    image: "/Images/Nature-one.jpg",
+    uroven: {
+      Beginning,
+      Intermediate,
+      Master,
+    },
+    level: "Master",
   },
 ];

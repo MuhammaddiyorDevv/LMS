@@ -8,12 +8,26 @@ import { SlGraduation } from "react-icons/sl";
 import { GoPeople } from "react-icons/go";
 import { IoMdTime } from "react-icons/io";
 import { AllCoursesPageCourse } from "../../types/allCourses";
-
+import Beginning from "../uroven/Beginning";
+import Intermediate from "../uroven/Intermediate";
+import Master from "../uroven/Master";
 interface CourseCardProps {
   course: AllCoursesPageCourse;
 }
 
 const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
+  const renderLevelComponent = (level: string) => {
+    switch (level) {
+      case "Beginning":
+        return <Beginning />;
+      case "Intermediate":
+        return <Intermediate />;
+      case "Master":
+        return <Master />;
+      default:
+        return <Beginning />;
+    }
+  };
   return (
     <Link
       href={`/course/${course.id}`}
@@ -27,6 +41,20 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
           fill
           className="object-cover"
         />
+        
+        {/* Level Overlay */}
+        <div className="absolute bg-white top-[14px] left-[14px] flex items-center gap-[6px] p-[6px] rounded-[4px]">
+          <div className="text-black py-1 rounded-full text-xs font-medium">
+            {course.level === "Beginning"
+              ? "Начинающий"
+              : course.level === "Intermediate"
+              ? "Средний уровень"
+              : "Мастер"}
+          </div>
+          <div className="bg-white/90 backdrop-blur-sm rounded-lg">
+            {renderLevelComponent(course.level)}
+          </div>
+        </div>
       </div>
 
       {/* Course Content */}
