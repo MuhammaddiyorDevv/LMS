@@ -4,7 +4,6 @@ import Contact from "@/components/help/Contact";
 import Chat from "@/components/help/Chat";
 import Help from "@/components/help/Help";
 
-// test
 
 const Page = () => {
   return (

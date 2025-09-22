@@ -51,7 +51,9 @@ export default function ConditionalLayout({
           </div>
         )}
 
-        <main className="flex-1 mt-[20px] pb-20 sm:pb-0">{children}</main>
+        <main className="flex-1 mt-[20px] pb-20 sm:pb-0">
+          {children}
+        </main>
       </div>
     </div>
   );

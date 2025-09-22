@@ -59,7 +59,7 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
       };
     } else {
       return {
-        priceRange: { min: 0, max: 1000000, step: 10000, priceGap: 50000 },
+        priceRange: { min: 0, max: 4500000, step: 10000, priceGap: 50000 },
         accordions: [
           {
             id: 0,

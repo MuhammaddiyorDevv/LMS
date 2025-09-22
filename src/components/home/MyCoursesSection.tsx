@@ -42,9 +42,9 @@ const MyCoursesSection = () => {
   }, [isCoursesPaused, totalSlides]);
 
   return (
-    <div className="bg-white rounded-[20px] p-5">
+    <div className="bg-white rounded-[20px] p-3 sm:p-5 max-w-full overflow-hidden w-full">
       {/* Header Section */}
-      <div className="mb-4 flex justify-between items-center">
+      <div className="mb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
         <div>
           <h1 className="text-[20px] sm:text-[24px] font-bold text-black">
             Ваши курсы
@@ -53,7 +53,7 @@ const MyCoursesSection = () => {
             Продолжайте обучение в удобное время вместе с нами
           </p>
         </div>
-        <div className="hidden sm:flex gap-2">
+        <div className="flex gap-2 w-full sm:w-auto justify-end">
           <button
             aria-label="left"
             className="p-2 text-[16px] hover:bg-gray-100 rounded-lg transition-colors text-[#999999]"
@@ -73,13 +73,13 @@ const MyCoursesSection = () => {
 
       {/* Course Cards Slider */}
       <div
-        className="slider-container relative overflow-hidden w-full"
+        className="relative overflow-hidden w-full"
         onMouseEnter={() => setIsCoursesPaused(true)}
         onMouseLeave={() => setIsCoursesPaused(false)}
       >
         <div
           ref={sliderRef}
-          className="slider-track flex gap-4 transition-transform duration-500 ease-in-out"
+          className="slider-track flex gap-2 sm:gap-4 transition-transform duration-500 ease-in-out w-full"
           style={{
             transform: `translateX(-${
               currentSlide * (100 / coursesPerSlide)
@@ -90,7 +90,7 @@ const MyCoursesSection = () => {
           {courses.map((course, index) => (
             <div
               key={course.id}
-              className="bg-white rounded-2xl items-start flex flex-col sm:flex-row gap-3 sm:gap-3.5 transition-all duration-500 ease-in-out overflow-hidden p-3 sm:p-4 border border-[#E5E5E5] transform cursor-pointer carousel-item flex-shrink-0"
+              className="bg-white rounded-2xl items-start flex flex-col sm:flex-row gap-2 sm:gap-3.5 transition-all duration-500 ease-in-out p-2 sm:p-4 border border-[#E5E5E5] transform cursor-pointer carousel-item flex-shrink-0 w-full"
               style={{
                 width: `${97 / courses.length}%`,
                 minWidth: `${97 / coursesPerSlide}%`,
@@ -100,7 +100,7 @@ const MyCoursesSection = () => {
               }}
             >
               {/* Course Image */}
-              <div className="h-40 sm:w-[84px] sm:h-[84px] flex-shrink-0">
+              <div className="h-32 sm:h-20 sm:w-[84px] sm:h-[84px] flex-shrink-0 w-full sm:w-auto">
                 <Image
                   src={course.image}
                   alt="Course thumbnail"
@@ -111,7 +111,7 @@ const MyCoursesSection = () => {
               </div>
 
               {/* Course Content */}
-              <div className="flex-1 h-[84px] sm:h-auto flex flex-col justify-between">
+              <div className="flex-1 h-auto sm:h-[84px] sm:h-auto flex flex-col justify-between w-full">
                 <div>
                   <h2 className="text-sm font-semibold text-gray-900 mb-1">
                     {course.title}
