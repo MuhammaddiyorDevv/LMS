@@ -1,4 +1,7 @@
 import { Course, NewCourse, Mentor } from "../../types/home";
+import Beginning from "../../components/uroven/Beginning";
+import Intermediate from "../../components/uroven/Intermediate";
+import Master from "../../components/uroven/Master";
 
 // Mentor data
 export const mentors: Mentor[] = [
@@ -138,7 +141,13 @@ export const newCourses: NewCourse[] = [
     lessons: 23,
     participants: 2949,
     duration: "5h 32m",
-    image: "/Images/NewCourseOne.svg",
+    image: "/Images/Nature-one.jpg",
+    uroven: {
+      Beginning,
+      Intermediate,
+      Master,
+    },
+    level: 'Beginning',
   },
   {
     id: 2,
@@ -154,7 +163,13 @@ export const newCourses: NewCourse[] = [
     lessons: 23,
     participants: 2949,
     duration: "5h 32m",
-    image: "/Images/NewCourseTwo.svg",
+    image: "/Images/Nature-two.jpeg",
+    uroven: {
+      Beginning,
+      Intermediate,
+      Master,
+    },
+    level: 'Intermediate',
   },
   {
     id: 3,
@@ -170,7 +185,13 @@ export const newCourses: NewCourse[] = [
     lessons: 23,
     participants: 2949,
     duration: "5h 32m",
-    image: "/Images/NewCourseThree.svg",
+    image: "/Images/Nature-three.jpeg",
+    uroven: {
+      Beginning,
+      Intermediate,
+      Master,
+    },
+    level: 'Master',
   },
   {
     id: 4,
@@ -186,7 +207,13 @@ export const newCourses: NewCourse[] = [
     lessons: 23,
     participants: 2949,
     duration: "5h 32m",
-    image: "/Images/NewCourseTwo.svg",
+    image: "/Images/Nature-two.jpeg",
+    uroven: {
+      Beginning,
+      Intermediate,
+      Master,
+    },
+    level: 'Intermediate',
   },
   {
     id: 5,
@@ -202,7 +229,13 @@ export const newCourses: NewCourse[] = [
     lessons: 23,
     participants: 2949,
     duration: "5h 32m",
-    image: "/Images/NewCourseThree.svg",
+    image: "/Images/Nature-three.jpeg",
+    uroven: {
+      Beginning,
+      Intermediate,
+      Master,
+    },
+    level: 'Master',
   },
   {
     id: 6,
@@ -218,6 +251,12 @@ export const newCourses: NewCourse[] = [
     lessons: 23,
     participants: 2949,
     duration: "5h 32m",
-    image: "/Images/NewCourseOne.svg",
+    image: "/Images/Nature-one.jpg",
+    uroven: {
+      Beginning,
+      Intermediate,
+      Master,
+    },
+    level: 'Beginning',
   },
 ];

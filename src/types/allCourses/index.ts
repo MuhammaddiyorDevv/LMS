@@ -1,3 +1,5 @@
+import React from 'react';
+
 // Course data interface for allCourses page
 export interface AllCoursesPageCourse {
   id: number;
@@ -13,6 +15,12 @@ export interface AllCoursesPageCourse {
   participants: number;
   duration: string;
   image: string;
+  uroven: {
+    Beginning: React.ComponentType;
+    Intermediate: React.ComponentType;
+    Master: React.ComponentType;
+  };
+  level: 'Beginning' | 'Intermediate' | 'Master';
 }
 
 // Filter options interface

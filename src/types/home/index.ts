@@ -1,3 +1,5 @@
+import React from 'react';
+
 // Course data interface
 export interface Course {
   id: number;
@@ -27,6 +29,12 @@ export interface NewCourse {
   participants: number;
   duration: string;
   image: string;
+  uroven: {
+    Beginning: React.ComponentType;
+    Intermediate: React.ComponentType;
+    Master: React.ComponentType;
+  };
+  level: 'Beginning' | 'Intermediate' | 'Master';
 }
 
 // Mentor data interface
