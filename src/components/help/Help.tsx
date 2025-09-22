@@ -13,7 +13,7 @@ const Help = () => {
       title: "Getting start",
       desc: "3D Master Class — это динамичный и захватывающий",
       icon: <FaChessBoard size={36} className="text-[#006ADC]" />,
-      bg: "", 
+      bg: "",
       iconSmall: false,
     },
     {
@@ -99,7 +99,9 @@ const Help = () => {
               )}
             </div>
             <div className="mt-4 flex items-center justify-center flex-col text-center">
-              <h4 className="font-bold text-[#0B0C0B] text-base">{card.title}</h4>
+              <h4 className="font-bold text-[#0B0C0B] text-base">
+                {card.title}
+              </h4>
               <p className="text-[#616161] text-xs">{card.desc}</p>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 // Review interface for mentor reviews
 export interface Review {
@@ -23,18 +23,18 @@ export interface MentorProfileProps {
     specialization: string[];
     experience: number;
     languages: string[];
-    status: 'online' | 'offline' | 'hybrid';
+    status: "online" | "offline" | "hybrid";
     isPremium: boolean;
     studentsCount: number;
     coursesCount: number;
     responseTime: string;
     location?: string;
-  icons?: {
-    experience: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-    courses: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-    students: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-    heart: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  };
+    icons?: {
+      experience: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+      courses: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+      students: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+      heart: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    };
   };
 }
 
@@ -69,7 +69,7 @@ export interface MentorContactInfo {
   name: string;
   hourlyRate: string;
   responseTime: string;
-  status: 'online' | 'offline' | 'hybrid';
+  status: "online" | "offline" | "hybrid";
   location?: string;
 }
 
@@ -77,7 +77,7 @@ export interface MentorContactInfo {
 export interface ActionButton {
   id: string;
   label: string;
-  variant: 'primary' | 'secondary' | 'outline';
+  variant: "primary" | "secondary" | "outline";
   icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   onClick?: () => void;
   href?: string;
@@ -90,7 +90,7 @@ export interface MentorDetailPageProps {
 
 // Error state interface
 export interface MentorErrorState {
-  type: 'not_found' | 'loading' | 'error';
+  type: "not_found" | "loading" | "error";
   message: string;
   showBackButton?: boolean;
 }

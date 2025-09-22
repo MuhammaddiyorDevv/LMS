@@ -1,6 +1,5 @@
-import React from 'react'
+import React from "react";
 import { MdOutlinePhoneInTalk, MdOutlineMailOutline } from "react-icons/md";
-
 
 const contacts = [
   {
@@ -40,36 +39,36 @@ const contacts = [
 const Contact = () => {
   return (
     <div className="grid grid-cols-1 gap-4">
-              <div className="bg-white p-4 flex flex-col gap-5 w-[492px] h-auto rounded-2xl">
-                <h2 className="font-bold text-[24px]">Контакты</h2>
-                <div className="flex flex-col gap-4">
-                  {contacts.map((item) => (
-                    <div
-                      key={item.id}
-                      className="flex items-center gap-3 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:right-0 after:w-[405px] after:border-b after:border-[#E5E7EB] last:after:hidden"
-                    >
-                      <div
-                        className={`${item.bg} rounded-[8px] text-white text-[24px]`}
-                      >
-                        {item.icon}
-                      </div>
-                      <div>
-                        <p className="text-[12px] font-normal text-[#616161]">
-                          {item.label}
-                        </p>
-                        <a
-                          href={item.link}
-                          className="text-[16px] font-bold text-[#0B0C0B]"
-                        >
-                          {item.value}
-                        </a>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+      <div className="bg-white p-4 flex flex-col gap-5 w-[492px] h-auto rounded-2xl">
+        <h2 className="font-bold text-[24px]">Контакты</h2>
+        <div className="flex flex-col gap-4">
+          {contacts.map((item) => (
+            <div
+              key={item.id}
+              className="flex items-center gap-3 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:right-0 after:w-[405px] after:border-b after:border-[#E5E7EB] last:after:hidden"
+            >
+              <div
+                className={`${item.bg} rounded-[8px] text-white text-[24px]`}
+              >
+                {item.icon}
+              </div>
+              <div>
+                <p className="text-[12px] font-normal text-[#616161]">
+                  {item.label}
+                </p>
+                <a
+                  href={item.link}
+                  className="text-[16px] font-bold text-[#0B0C0B]"
+                >
+                  {item.value}
+                </a>
               </div>
             </div>
-  )
-}
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Contact
+export default Contact;
