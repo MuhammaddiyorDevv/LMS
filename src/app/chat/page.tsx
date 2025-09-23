@@ -5,7 +5,6 @@ import ChatInterface from "@/components/help/ChatInterface";
 
 const ChatPage = () => {
   const handleCloseChat = () => {
-    // Navigate back to help page
     if (typeof window !== "undefined") {
       window.history.back();
     }

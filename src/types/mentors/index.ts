@@ -1,6 +1,5 @@
 import React from "react";
 
-// Mentor data interface for mentors page
 export interface Mentor {
   id: number;
   name: string;
@@ -10,13 +9,13 @@ export interface Mentor {
   hourlyRate: string;
   avatar: string;
   specialization: string[];
-  experience: number; // years of experience
+  experience: number; 
   languages: string[];
   status: "online" | "offline" | "hybrid";
   isPremium: boolean;
   studentsCount: number;
   coursesCount: number;
-  responseTime: string; // e.g., "2 hours"
+  responseTime: string;
   location?: string;
   icons?: {
     experience: React.ComponentType<React.SVGProps<SVGSVGElement>>;
@@ -26,7 +25,6 @@ export interface Mentor {
   };
 }
 
-// Filter options interface for mentors
 export interface MentorFilterOptions {
   priceRange: {
     min: number;
@@ -39,7 +37,6 @@ export interface MentorFilterOptions {
   isPremium: boolean;
 }
 
-// Accordion state interface
 export interface AccordionState {
   expandedAccordions: number[];
   toggleAccordion: (index: number) => void;

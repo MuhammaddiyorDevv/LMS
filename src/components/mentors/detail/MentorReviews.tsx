@@ -9,7 +9,6 @@ import {
 } from "../../../data/mentors/detail";
 
 const MentorReviews: React.FC<MentorReviewsProps> = ({ reviews, mentorId }) => {
-  // Get reviews from data or use provided reviews
   const mentorReviews = reviews || (mentorId ? getMentorReviews(mentorId) : []);
   const totalReviews = mentorId
     ? getMentorReviewCount(mentorId)
@@ -51,7 +50,6 @@ const MentorReviews: React.FC<MentorReviewsProps> = ({ reviews, mentorId }) => {
           </div>
         ))}
 
-        {/* Load More Reviews Button */}
         {totalReviews > mentorReviews.length && (
           <div className="text-center mt-6">
             <button className="text-[#567D4A] hover:underline text-sm">

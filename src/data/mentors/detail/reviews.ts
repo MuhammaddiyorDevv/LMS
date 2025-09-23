@@ -1,6 +1,5 @@
 import { Review } from "../../../types/mentors/detail";
 
-// Sample reviews data for mentors
 export const mentorReviews: Record<number, Review[]> = {
   1: [
     {
@@ -132,21 +131,18 @@ export const mentorReviews: Record<number, Review[]> = {
   ],
 };
 
-// Function to get reviews for a specific mentor
 export const getMentorReviews = (mentorId: number): Review[] => {
   return mentorReviews[mentorId] || [];
 };
 
-// Function to get total review count for a mentor
 export const getMentorReviewCount = (mentorId: number): number => {
   return mentorReviews[mentorId]?.length || 0;
 };
 
-// Function to get average rating for a mentor
 export const getMentorAverageRating = (mentorId: number): number => {
   const reviews = mentorReviews[mentorId];
   if (!reviews || reviews.length === 0) return 0;
 
   const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
-  return Math.round((totalRating / reviews.length) * 10) / 10; // Round to 1 decimal place
+  return Math.round((totalRating / reviews.length) * 10) / 10; 
 };

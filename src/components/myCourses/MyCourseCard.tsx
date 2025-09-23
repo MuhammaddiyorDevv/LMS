@@ -11,7 +11,6 @@ interface MyCourseCardProps {
 const MyCourseCard: React.FC<MyCourseCardProps> = ({ course }) => {
   return (
     <div className="bg-white rounded-2xl items-start flex hover:shadow-xl transition-shadow duration-300 overflow-hidden p-4 border border-[#E5E5E5]">
-      {/* Course Image */}
       <div className="w-[84px] h-[84px] flex-shrink-0">
         <Image
           src={course.image}
@@ -22,7 +21,6 @@ const MyCourseCard: React.FC<MyCourseCardProps> = ({ course }) => {
         />
       </div>
 
-      {/* Course Content */}
       <div className="flex-1 px-4 h-[84px] flex flex-col justify-between">
         <div>
           <h2 className="text-sm font-bold text-gray-900 mb-1 line-clamp-1">
@@ -34,7 +32,6 @@ const MyCourseCard: React.FC<MyCourseCardProps> = ({ course }) => {
         </div>
 
         <div>
-          {/* Instructor */}
           <div className="flex items-center mb-1">
             <Image
               src={course.instructor.avatar}
@@ -50,7 +47,6 @@ const MyCourseCard: React.FC<MyCourseCardProps> = ({ course }) => {
             </div>
           </div>
 
-          {/* Progress Bar */}
           <div>
             <div className="flex justify-end items-center mb-1">
               <span className="text-xs font-semibold text-[#567D4A]">

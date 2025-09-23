@@ -6,7 +6,6 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { courses } from "../../data/home";
 
 const MyCoursesSection = () => {
-  // Courses slider state
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isCoursesPaused, setIsCoursesPaused] = useState(false);
   const coursesPerSlide = 3;
@@ -26,12 +25,11 @@ const MyCoursesSection = () => {
     return courses.slice(currentSlide, currentSlide + coursesPerSlide);
   };
 
-  // Auto slider effect for courses
   useEffect(() => {
     if (!isCoursesPaused) {
       coursesIntervalRef.current = setInterval(() => {
         nextSlide();
-      }, 4000); // Change slide every 4 seconds
+      }, 4000); 
     }
 
     return () => {
@@ -43,7 +41,6 @@ const MyCoursesSection = () => {
 
   return (
     <div className="bg-white rounded-[20px] p-3 sm:p-5 max-w-full overflow-hidden w-full">
-      {/* Header Section */}
       <div className="mb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
         <div>
           <h1 className="text-[20px] sm:text-[24px] font-bold text-black">
@@ -71,7 +68,6 @@ const MyCoursesSection = () => {
         </div>
       </div>
 
-      {/* Course Cards Slider */}
       <div
         className="relative overflow-hidden w-full"
         onMouseEnter={() => setIsCoursesPaused(true)}
@@ -99,7 +95,6 @@ const MyCoursesSection = () => {
                 }s both`,
               }}
             >
-              {/* Course Image */}
               <div className="h-32 sm:h-20 sm:w-[84px] sm:h-[84px] flex-shrink-0 w-full sm:w-auto">
                 <Image
                   src={course.image}
@@ -110,7 +105,6 @@ const MyCoursesSection = () => {
                 />
               </div>
 
-              {/* Course Content */}
               <div className="flex-1 h-auto sm:h-[84px] sm:h-auto flex flex-col justify-between w-full">
                 <div>
                   <h2 className="text-sm font-semibold text-gray-900 mb-1">
@@ -122,7 +116,6 @@ const MyCoursesSection = () => {
                 </div>
 
                 <div>
-                  {/* Instructor */}
                   <div className="flex items-center mt-3 mb-3.5">
                     <Image
                       src={course.instructor.avatar}
@@ -138,7 +131,6 @@ const MyCoursesSection = () => {
                     </div>
                   </div>
 
-                  {/* Progress Bar */}
                   <div>
                     <div className="flex justify-end items-center ">
                       <span className="text-xs font-semibold text-[#567D4A]">
