@@ -17,7 +17,6 @@ const MentorDetails: React.FC<MentorDetailsProps> = ({ mentor }) => {
       case "about":
         return (
           <div className="space-y-8">
-            {/* About Section */}
             <div>
               <h2 className="text-xl font-semibold mb-4">О менторе</h2>
               <p className="text-gray-700 leading-relaxed">
@@ -25,7 +24,6 @@ const MentorDetails: React.FC<MentorDetailsProps> = ({ mentor }) => {
               </p>
             </div>
 
-            {/* Specializations */}
             <div>
               <h2 className="text-xl font-semibold mb-4">Специализации</h2>
               <div className="flex flex-wrap gap-2">
@@ -40,7 +38,6 @@ const MentorDetails: React.FC<MentorDetailsProps> = ({ mentor }) => {
               </div>
             </div>
 
-            {/* Languages */}
             <div>
               <h2 className="text-xl font-semibold mb-4">Языки</h2>
               <div className="flex flex-wrap gap-2">
@@ -62,7 +59,6 @@ const MentorDetails: React.FC<MentorDetailsProps> = ({ mentor }) => {
           <div>
             <h2 className="text-xl font-semibold mb-4">Курсы ментора</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Sample courses */}
               <div className="border border-gray-200 rounded-lg p-4">
                 <h3 className="font-semibold text-gray-900 mb-2">
                   Основы UX/UI дизайна
@@ -155,7 +151,6 @@ const MentorDetails: React.FC<MentorDetailsProps> = ({ mentor }) => {
 
   return (
     <div className="lg:col-span-2">
-      {/* Tab Navigation */}
       <div className="mb-6 w-full">
         <nav className="flex space-x-2 w-full">
           {tabs.map((tab) => (
@@ -174,7 +169,6 @@ const MentorDetails: React.FC<MentorDetailsProps> = ({ mentor }) => {
         </nav>
       </div>
 
-      {/* Tab Content */}
       <div className="min-h-[400px]">{renderTabContent()}</div>
     </div>
   );

@@ -6,7 +6,6 @@ import { CourseProgressChart, ActivityChart } from "./DashboardCharts";
 const DashboardSection = () => {
   return (
     <div className="bg-white rounded-[20px] p-5">
-      {/* Header Section */}
       <div className="mb-4">
         <h1 className="text-[24px] font-bold text-black">
           Мы рады вас видеть у нас
@@ -16,15 +15,12 @@ const DashboardSection = () => {
         </p>
       </div>
 
-      {/* Dashboard Widgets */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        {/* Course Progress Widget */}
         <div className="bg-[#124600] rounded-2xl p-4 text-white">
           <h2 className="text-[16px] font-semibold mb-4">Ваш текущий курс</h2>
           <CourseProgressChart />
         </div>
 
-        {/* Activity Widget */}
         <div className="bg-white rounded-2xl p-4 border border-[#E5E5E5]">
           <div className="flex justify-between items-center mb-[10px]">
             <h2 className="text-[16px] font-semibold text-black">Активность</h2>

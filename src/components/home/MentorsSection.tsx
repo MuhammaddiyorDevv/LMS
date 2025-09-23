@@ -6,7 +6,6 @@ import { FaChevronLeft, FaChevronRight, FaPlay } from "react-icons/fa";
 import { mentors } from "../../data/home";
 
 const MentorsSection = () => {
-  // Mentors carousel state
   const [currentMentorSlide, setCurrentMentorSlide] = useState(0);
   const [isMentorsPaused, setIsMentorsPaused] = useState(false);
   const mentorsPerSlide = 3;
@@ -27,7 +26,6 @@ const MentorsSection = () => {
     });
   };
 
-  // Auto carousel effect for mentors
   useEffect(() => {
     if (!isMentorsPaused) {
       mentorsIntervalRef.current = setInterval(() => {
@@ -35,7 +33,7 @@ const MentorsSection = () => {
           const next = prev + 1;
           return next >= totalMentorSlides ? 0 : next;
         });
-      }, 5000); // Change slide every 5 seconds
+      }, 5000); 
     }
 
     return () => {
@@ -47,7 +45,6 @@ const MentorsSection = () => {
 
   return (
     <div className="bg-white rounded-[20px] p-5">
-      {/* Header Section */}
       <div className="mb-4 flex justify-between items-center">
         <div>
           <h1 className="text-xl sm:text-[24px] font-bold text-black flex">
@@ -77,7 +74,6 @@ const MentorsSection = () => {
         </div>
       </div>
 
-      {/* Mentors Cards Slider */}
       <div
         className="relative overflow-hidden"
         onMouseEnter={() => setIsMentorsPaused(true)}
@@ -109,7 +105,6 @@ const MentorsSection = () => {
                       }s both`,
                     }}
                   >
-                    {/* Profile Picture */}
                     <div className="w-[42px] h-[42px] sm:w-16 sm:h-16 flex-shrink-0">
                       <Image
                         src={mentor.avatar}
@@ -120,7 +115,6 @@ const MentorsSection = () => {
                       />
                     </div>
 
-                    {/* Mentor Info */}
                     <div className="flex-1">
                       <h3 className="text-black mb-1 font-semibold text-[16px]">
                         {mentor.name}
@@ -130,7 +124,6 @@ const MentorsSection = () => {
                       </p>
                     </div>
 
-                    {/* Play Button */}
                     <button
                       aria-label="Play"
                       className="hidden sm:flex p-3 rounded-full transition-colors"
@@ -138,7 +131,6 @@ const MentorsSection = () => {
                       <FaPlay className="text-[#567D4A] text-[18px]" />
                     </button>
 
-                    {/* Mobile Button */}
                     <button className="rounded-[99px] bg-[#567D4A] text-white py-[11px] px-[52px] text-[12px] flex sm:hidden">
                       Continue
                     </button>

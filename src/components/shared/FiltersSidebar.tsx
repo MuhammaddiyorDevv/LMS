@@ -24,7 +24,6 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
     );
   };
 
-  // Different configurations for courses vs mentors
   const getConfig = () => {
     if (type === "courses") {
       return {
@@ -317,13 +316,11 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
 
   return (
     <div className="w-[25%] h-auto border-[1px] rounded-[16px] border-[#E5E5E5]">
-      {/* Filters Header */}
       <div className="flex justify-between items-center p-4 border-b-[1px] border-b-[#F2F1F5]">
         <h1 className="font-semibold">Филтры</h1>
         <MdOutlineReplay size={20} />
       </div>
 
-      {/* Filters Content */}
       <div className="p-4">
         <div className="flex justify-between items-center mb-4">
           <h5 className="font-semibold text-[14px]">Только премиум</h5>
@@ -331,7 +328,6 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
         </div>
         <hr className="text-[#F2F1F5] mb-4" />
 
-        {/* Dynamic Accordions */}
         {config.accordions.map((accordion, index) => (
           <div key={accordion.id}>
             <div className="mb-4">

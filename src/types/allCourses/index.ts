@@ -1,6 +1,5 @@
 import React from 'react';
 
-// Course data interface for allCourses page
 export interface AllCoursesPageCourse {
   id: number;
   title: string;
@@ -23,7 +22,6 @@ export interface AllCoursesPageCourse {
   level: 'Beginning' | 'Intermediate' | 'Master';
 }
 
-// Filter options interface
 export interface FilterOptions {
   priceRange: {
     min: number;
@@ -36,7 +34,6 @@ export interface FilterOptions {
   isPremium: boolean;
 }
 
-// Accordion state interface
 export interface AccordionState {
   expandedAccordions: number[];
   toggleAccordion: (index: number) => void;

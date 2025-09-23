@@ -12,7 +12,6 @@ import { BiUser } from "react-icons/bi";
 import { IoChatbubbleOutline } from "react-icons/io5";
 
 const MentorProfile: React.FC<MentorProfileProps> = ({ mentor }) => {
-  // Sample skills data - in real app this would come from mentor data
   const skills = [
     "Ux ui designer",
     "Product designing",
@@ -24,7 +23,6 @@ const MentorProfile: React.FC<MentorProfileProps> = ({ mentor }) => {
   return (
     <div className="lg:col-span-1">
       <div className="sticky top-6">
-        {/* Back Button */}
         <Link
           href="/mentors"
           className="inline-flex items-center gap-2 text-gray-600 hover:text-[#567D4A] mb-6 transition-colors"
@@ -33,9 +31,7 @@ const MentorProfile: React.FC<MentorProfileProps> = ({ mentor }) => {
           Назад к менторам
         </Link>
 
-        {/* Mentor Card */}
         <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-          {/* Mentor Avatar and Basic Info */}
           <div className="text-center mb-6">
             <div className="relative inline-block">
               <Image
@@ -45,7 +41,6 @@ const MentorProfile: React.FC<MentorProfileProps> = ({ mentor }) => {
                 height={120}
                 className="rounded-full object-cover mx-auto mb-3"
               />
-              {/* Rating Badge */}
               <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 bg-gray-100 px-3 py-1 rounded-full flex items-center gap-1">
                 <IoStar className="text-yellow-400 text-sm" />
                 <span className="text-sm font-semibold text-gray-700">
@@ -59,7 +54,6 @@ const MentorProfile: React.FC<MentorProfileProps> = ({ mentor }) => {
             <p className="text-sm text-gray-600">{mentor.title}</p>
           </div>
 
-          {/* Statistics Grid */}
           <div className="grid grid-cols-2 gap-3 mb-6">
             <div className="bg-gray-50 rounded-lg p-4 flex items-center justify-between">
               <div>
@@ -97,7 +91,6 @@ const MentorProfile: React.FC<MentorProfileProps> = ({ mentor }) => {
             </div>
           </div>
 
-          {/* Skills Section */}
           <div className="mb-6">
             <h3 className="text-sm font-bold text-gray-900 mb-3">
               Лучшие навыки
