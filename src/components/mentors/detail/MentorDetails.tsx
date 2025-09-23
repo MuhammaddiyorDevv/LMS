@@ -149,7 +149,6 @@ const MentorDetails: React.FC<MentorDetailsProps> = ({ mentor }) => {
 
   return (
     <div className="lg:col-span-2">
-      {/* Tab Navigation */}
       <div className="mb-6 w-full">
         <nav className="flex space-x-2 w-full">
           {tabs.map((tab) => (
@@ -168,7 +167,6 @@ const MentorDetails: React.FC<MentorDetailsProps> = ({ mentor }) => {
         </nav>
       </div>
 
-      {/* Tab Content */}
       <div className="min-h-[400px]">{renderTabContent()}</div>
     </div>
   );

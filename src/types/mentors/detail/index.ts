@@ -1,6 +1,5 @@
 import React from "react";
 
-// Review interface for mentor reviews
 export interface Review {
   id: number;
   name: string;
@@ -10,7 +9,6 @@ export interface Review {
   avatar?: string;
 }
 
-// Mentor profile props interface
 export interface MentorProfileProps {
   mentor: {
     id: number;
@@ -38,7 +36,6 @@ export interface MentorProfileProps {
   };
 }
 
-// Mentor details props interface
 export interface MentorDetailsProps {
   mentor: {
     id: number;
@@ -49,13 +46,11 @@ export interface MentorDetailsProps {
   };
 }
 
-// Mentor reviews props interface
 export interface MentorReviewsProps {
   reviews?: Review[];
   mentorId?: number;
 }
 
-// Mentor stats interface
 export interface MentorStats {
   experience: number;
   coursesCount: number;
@@ -64,7 +59,6 @@ export interface MentorStats {
   totalReviews: number;
 }
 
-// Mentor contact info interface
 export interface MentorContactInfo {
   name: string;
   hourlyRate: string;
@@ -73,7 +67,6 @@ export interface MentorContactInfo {
   location?: string;
 }
 
-// Action button interface
 export interface ActionButton {
   id: string;
   label: string;
@@ -83,12 +76,10 @@ export interface ActionButton {
   href?: string;
 }
 
-// Mentor detail page props
 export interface MentorDetailPageProps {
   mentorId: number;
 }
 
-// Error state interface
 export interface MentorErrorState {
   type: "not_found" | "loading" | "error";
   message: string;

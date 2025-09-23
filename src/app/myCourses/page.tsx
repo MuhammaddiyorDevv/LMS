@@ -26,7 +26,6 @@ const MyCoursesPage = () => {
     setActiveTab(tabId);
   };
 
-  // Filter courses based on active tab
   const filteredCourses = activeTab === "my-courses" ? myCoursesData : [];
 
   return (

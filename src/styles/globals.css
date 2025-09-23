@@ -224,7 +224,6 @@
   }
 }
 
-/* Carousel Animation Keyframes */
 @keyframes slideInFromRight {
   0% {
     opacity: 0;
@@ -258,7 +257,6 @@
   }
 }
 
-/* Smooth carousel transitions */
 .carousel-container {
   transition: all 0.5s ease-in-out;
 }
@@ -267,7 +265,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-/* Prevent horizontal scroll */
 .slider-container {
   overflow-x: hidden;
   max-width: 100%;
@@ -277,7 +274,6 @@
   max-width: 100%;
 }
 
-/* Ensure no horizontal overflow */
 * {
   box-sizing: border-box;
 }

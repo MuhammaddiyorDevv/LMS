@@ -29,7 +29,11 @@ const MyCoursesSection = () => {
     if (!isCoursesPaused) {
       coursesIntervalRef.current = setInterval(() => {
         nextSlide();
+<<<<<<< HEAD
       }, 4000);
+=======
+      }, 4000); 
+>>>>>>> 1673e60639b76b69f353990ff5a8076ebb19ca00
     }
 
     return () => {
@@ -104,6 +108,10 @@ const MyCoursesSection = () => {
                   className="w-full h-full object-cover rounded-lg"
                 />
               </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1673e60639b76b69f353990ff5a8076ebb19ca00
               <div className="flex-1 h-auto sm:h-[84px] sm:h-auto flex flex-col justify-between w-full">
                 <div>
                   <h2 className="text-sm font-semibold text-gray-900 mb-1">
@@ -128,6 +136,10 @@ const MyCoursesSection = () => {
                       </p>
                     </div>
                   </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1673e60639b76b69f353990ff5a8076ebb19ca00
                   <div>
                     <div className="flex justify-end items-center ">
                       <span className="text-xs font-semibold text-[#567D4A]">

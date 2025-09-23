@@ -30,6 +30,10 @@ const MentorProfile: React.FC<MentorProfileProps> = ({ mentor }) => {
           <IoArrowBack className="text-lg" />
           Назад к менторам
         </Link>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1673e60639b76b69f353990ff5a8076ebb19ca00
         <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
           <div className="text-center mb-6">
             <div className="relative inline-block">
@@ -52,6 +56,10 @@ const MentorProfile: React.FC<MentorProfileProps> = ({ mentor }) => {
             </h1>
             <p className="text-sm text-gray-600">{mentor.title}</p>
           </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1673e60639b76b69f353990ff5a8076ebb19ca00
           <div className="grid grid-cols-2 gap-3 mb-6">
             <div className="bg-gray-50 rounded-lg p-4 flex items-center justify-between">
               <div>
@@ -88,6 +96,10 @@ const MentorProfile: React.FC<MentorProfileProps> = ({ mentor }) => {
               <IoChatbubbleOutline className="text-[#0B0C0B] text-lg" />
             </div>
           </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1673e60639b76b69f353990ff5a8076ebb19ca00
           <div className="mb-6">
             <h3 className="text-sm font-bold text-gray-900 mb-3">
               Лучшие навыки

@@ -1,6 +1,5 @@
 import React from 'react';
 
-// Course data interface
 export interface Course {
   id: number;
   title: string;
@@ -14,7 +13,6 @@ export interface Course {
   gradient: string;
 }
 
-// New Course data interface
 export interface NewCourse {
   id: number;
   title: string;
@@ -37,7 +35,6 @@ export interface NewCourse {
   level: 'Beginning' | 'Intermediate' | 'Master';
 }
 
-// Mentor data interface
 export interface Mentor {
   id: number;
   name: string;
